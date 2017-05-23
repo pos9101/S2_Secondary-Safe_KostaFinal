@@ -22,9 +22,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import s2.navigation.com.socket.SocketNetwork;
+
+import java.net.URISyntaxException;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
 
     private GoogleMap mMap;
     Marker nowLocation;
@@ -32,6 +38,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final int REQUEST_FINE_ACCESS = 123;
     private final int REQUEST_COARSE_LOCATION = 234;
     Location loc;
+
+    static public Socket mSocket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +58,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},REQUEST_COARSE_LOCATION);
         }
         loc = mLocMgr.getLastKnownLocation(mLocMgr.GPS_PROVIDER);
-
+        startSocketNetwork();
 
     }
 
@@ -121,5 +129,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onProviderDisabled(String provider) {}
     };
 
+    public void startSocketNetwork(){
+        try {
+            mSocket = IO.socket("https://nodejs-jeongjiho.c9users.io:8080/");
+            mSocket.on(io.socket.client.Socket.EVENT_CONNECT, onConnect);
+            mSocket.on("smart", system2);
+            mSocket.connect();
+
+        } catch (URISyntaxException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    //값보낼때 사용
+    public static Emitter.Listener onConnect = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            System.out.println("Send listener");
+            // TODO Auto-generated method stub
+            String sendM="kyo1";
+            mSocket.emit("rint",sendM);
+            System.out.println("보낸값:"+sendM);
+        }
+    };//end emitter
+
+
+    //값받을 때 사용
+    public static Emitter.Listener system2 = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            System.out.println(args[0]);
+        }//end call
+    };//end Listener
 
 }
