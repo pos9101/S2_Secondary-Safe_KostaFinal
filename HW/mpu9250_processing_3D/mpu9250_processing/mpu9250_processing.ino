@@ -44,7 +44,9 @@ THE SOFTWARE.
 // I2Cdev and MPU9250 must be installed as libraries, or else the .cpp/.h files
 // for both classes must be in the include path of your project
 #include "I2Cdev.h"
-
+#include "LiquidCrystal_I2C.h"
+#include "pitches.h"
+#define BUTTON 7
 #include "MPU9250_9Axis_MotionApps41.h"
 //#include "MPU9250.h" // not necessary if using MotionApps include file
 
@@ -142,7 +144,8 @@ float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gra
 // packet structure for InvenSense teapot demo
 uint8_t teapotPacket[14] = { '$', 0x02, 0,0, 0,0, 0,0, 0,0, 0x00, 0x00, '\r', '\n' };
 
-
+//lcd display
+LiquidCrystal_I2C lcd(0x3F,16,2);  
 
 // ================================================================
 // ===               INTERRUPT DETECTION ROUTINE                ===
@@ -234,6 +237,10 @@ void setup() {
 
     // configure LED for output
     pinMode(LED_PIN, OUTPUT);
+    //lcd display
+    lcd.begin();
+
+    pinMode(BUTTON,INPUT);
 }
 
 
@@ -246,22 +253,15 @@ void loop() {
     // if programming failed, don't try to do anything
     if (!dmpReady) return;
 
-    // wait for MPU interrupt or extra packet(s) available
-    while (!mpuInterrupt && fifoCount < packetSize) {
-        // other program behavior stuff here
-        // .
-        /////////////////warning/////////////////////
+    // wait for MPU interrupt or extra packet(s) available 
         int yaw = ypr[0] * 180/M_PI;
         int pitch = ypr[1] * 180/M_PI;
         int roll = ypr[2] * 180/M_PI;
 
-        if(pitch>40 || pitch<-40){
-          Serial.println("warning!! Overturn!!!");
-        }
-
-        if(roll>40 || roll<-40){
-          Serial.println("warning!! Reverse!!!");
-        }
+    while (!mpuInterrupt && fifoCount < packetSize) {
+        // other program behavior stuff here
+        // .
+        /////////////////warning/////////////////////
         // .
         // if you are really paranoid you can frequently test in between other
         // stuff to see if mpuInterrupt is true, and if so, "break;" from the
@@ -270,7 +270,32 @@ void loop() {
         // .
         // .
     }
+   if(pitch>40 || pitch<-40){
+          lcd.backlight();
+          lcd.print("warning!!");
+          lcd.setCursor(0, 1);
+          lcd.print("Overturn!!!");
+          tone(8, NOTE_G4, 200);
+        }else{
+          lcd.clear();
+          lcd.noBacklight();
+          noTone(8);
+        }
 
+        if(roll>40 || roll<-40){
+          lcd.backlight();
+          lcd.print("warning!!");
+          lcd.setCursor(0, 1);
+          lcd.print("Reverse!!!");
+          tone(8, NOTE_G4, 200);
+        }else{
+          lcd.clear();
+          lcd.noBacklight();
+          noTone(8);
+        }
+
+
+        
     // reset interrupt flag and get INT_STATUS byte
     mpuInterrupt = false;
     mpuIntStatus = mpu.getIntStatus();
@@ -326,11 +351,13 @@ void loop() {
             mpu.dmpGetQuaternion(&q, fifoBuffer);
             mpu.dmpGetGravity(&gravity, &q);
             mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-            Serial.print("ypr\t");
-            Serial.print(ypr[0] * 180/M_PI);
-            Serial.print("\t");
+//            Serial.print("ypr\t");
+//            Serial.print(ypr[0] * 180/M_PI);
+//            Serial.print(",");
+//            Serial.print("\t");
             Serial.print(ypr[1] * 180/M_PI);
-            Serial.print("\t");
+            Serial.print(",");
+//            Serial.print("\t");
             Serial.println(ypr[2] * 180/M_PI);
         #endif
 
@@ -358,8 +385,10 @@ void loop() {
             mpu.dmpGetLinearAccelInWorld(&aaWorld, &aaReal, &q);
             Serial.print("aworld\t");
             Serial.print(aaWorld.x);
+            Serial.print(",");
             Serial.print("\t");
-            Serial.print(aaWorld.y);
+            Serial.println(aaWorld.y);
+            Serial.print(",");
             Serial.print("\t");
             Serial.println(aaWorld.z);
         #endif
@@ -374,7 +403,7 @@ void loop() {
             teapotPacket[7] = fifoBuffer[9];
             teapotPacket[8] = fifoBuffer[12];
             teapotPacket[9] = fifoBuffer[13];
-            Serial.write(teapotPacket, 14);
+            //Serial.write(teapotPacket, 14);
             teapotPacket[11]++; // packetCount, loops at 0xFF on purpose
         #endif
 
