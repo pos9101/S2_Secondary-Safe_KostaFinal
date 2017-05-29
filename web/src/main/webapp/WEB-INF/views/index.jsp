@@ -2,13 +2,22 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>S2 Secondary Safe</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<jsp:include page="menu/menubar.jsp"></jsp:include>
+
+Welcome to this page. We want to collect all accident cases.
+This page is index of Sites. 
+
+
+
+
+<jsp:include page="menu/staff.jsp"></jsp:include>
+
+
+
+
 </body>
 </html>
