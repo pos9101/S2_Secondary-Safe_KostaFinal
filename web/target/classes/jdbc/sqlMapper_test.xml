@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.com.spring03">
+	<!-- #{name},#{tel} -->
+	<insert id="insert" parameterType="test.com.spring03.TestVO">
+		insert into
+		stest(num,name,tel)
+		values(seq_stest_num.nextval,#{name},#{tel})
+	</insert>
+
+	<update id="update" parameterType="test.com.spring03.TestVO">
+		update stest set
+		name=#{name},tel=#{tel} where num = #{num}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from stest where
+		num=#{num}
+	</delete>
+
+	<select id="select" resultType="test.com.spring03.TestVO">
+		select * from stest order by num
+		desc
+	</select>
+
+
+	<!-- select * from member where id=? -->
+	<select id="search" resultType="test.com.spring03.TestVO">
+		select * from stest where num =
+		#{num}
+
+	</select>
+
+	<!-- select * from member where name like ?"; -->
+	<select id="searchList" resultType="test.com.spring03.TestVO"
+		parameterType="hashmap">
+		select * from stest 
+		<!-- where name LIKE #{searchWord} -->
+		<if test="searchKey =='name'">
+			where name LIKE #{searchWord}
+		</if>
+		<if test="searchKey !='name'">
+			where tel LIKE #{searchWord}
+		</if>
+	</select>
+</mapper>
