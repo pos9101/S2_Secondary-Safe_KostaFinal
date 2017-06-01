@@ -3,41 +3,41 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="test.com.spring03">
+<mapper namespace="test.com.web">
 	<!-- #{name},#{tel} -->
-	<insert id="insert" parameterType="test.com.spring03.TestVO">
+	<insert id="insert" parameterType="test.com.web.ArduinoVO">
 		insert into
-		stest(num,name,tel)
-		values(seq_stest_num.nextval,#{name},#{tel})
+		arduino(num,serialnum,latitude,longitude,atime)
+		values(#{num},#{serialnum},#{latitude},#{longitude},#{atime})
 	</insert>
 
-	<update id="update" parameterType="test.com.spring03.TestVO">
-		update stest set
+	<update id="update" parameterType="test.com.web.ArduinoVO">
+		update arduino set
 		name=#{name},tel=#{tel} where num = #{num}
 	</update>
 
 	<delete id="delete" parameterType="int">
-		delete from stest where
+		delete from arduino where
 		num=#{num}
 	</delete>
 
-	<select id="select" resultType="test.com.spring03.TestVO">
-		select * from stest order by num
+	<select id="select" resultType="test.com.web.ArduinoVO">
+		select * from arduino order by num
 		desc
 	</select>
 
 
 	<!-- select * from member where id=? -->
-	<select id="search" resultType="test.com.spring03.TestVO">
-		select * from stest where num =
+	<select id="search" resultType="test.com.web.ArduinoVO">
+		select * from arduino where num =
 		#{num}
 
 	</select>
 
 	<!-- select * from member where name like ?"; -->
-	<select id="searchList" resultType="test.com.spring03.TestVO"
+	<select id="searchList" resultType="test.com.web.ArduinoVO"
 		parameterType="hashmap">
-		select * from stest 
+		select * from arduino 
 		<!-- where name LIKE #{searchWord} -->
 		<if test="searchKey =='name'">
 			where name LIKE #{searchWord}

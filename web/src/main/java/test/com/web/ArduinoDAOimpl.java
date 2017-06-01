@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 @Repository
 public class ArduinoDAOimpl implements ArduinoDAO {
@@ -21,6 +22,7 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 	@Override
 	public int insert(ArduinoVO vo) {
 		System.out.println("ArduinoVOimpl:insert()...");
+		System.out.println(vo.getNum());
 		System.out.println(vo.getSerialnum());
 		System.out.println(vo.getLatitude());
 		System.out.println(vo.getLongitude());
@@ -35,6 +37,7 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 
 	@Override
 	public int update(ArduinoVO vo) {
+		System.out.println(vo.getNum());
 		System.out.println(vo.getSerialnum());
 		System.out.println(vo.getLatitude());
 		System.out.println(vo.getLongitude());
@@ -49,18 +52,18 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 
 	@Override
 	public int delete(ArduinoVO vo) {
-		System.out.println(vo.getSerialnum());
+		System.out.println(vo.getNum());
 		
 		int flag = 0;
 		
-		flag = sqlSession.delete("delete",vo.getSerialnum());
+		flag = sqlSession.delete("delete",vo.getNum());
 		
 		return flag;
 	}
 
 	@Override
 	public ArduinoVO search(ArduinoVO vo) {
-		logger.info("search()..." + vo.getSerialnum());
+		logger.info("search()..." + vo.getNum());
 		ArduinoVO avo = sqlSession.selectOne("search", vo);
 		
 		return avo;
