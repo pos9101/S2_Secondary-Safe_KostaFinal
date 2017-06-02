@@ -10,23 +10,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations="file:src/main/webapp/WEB-INF/spring/root-context.xml")
-@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml"})
 
-public class ArduinoTest {
-	private static final Logger logger = LoggerFactory.getLogger(ArduinoTest.class);
+//@ContextConfiguration(locations="file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml","file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
+public class ArduinoControllerTest {
+	
+
+	private static final Logger logger = LoggerFactory.getLogger(ArduinoControllerTest.class);
 	@Autowired
 	private ArduinoService as;
-	
+
 	@Test
 	public void asTest() {
-		logger.info("asTest()..."+as);
-//		assertNull(as);
+
+		logger.info("HEllo");
+		logger.info("asTest()..." + as);
+		// assertNull(as);
 		assertNotNull(as);
-		ArduinoVO vo  = new ArduinoVO(11,"aaaa2", "bbbb2","dfdfdf","dfdf");
+		ArduinoVO vo = new ArduinoVO(11, "aaaa2", "bbbb2", "dfdfdf", "dfdf");
 		assertNotNull(as.insert(vo));
 	}
-
 }
