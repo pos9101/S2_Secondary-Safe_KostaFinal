@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="test.com.web">
+	<!-- arduino -->
 	<!-- #{name},#{tel} -->
 	<insert id="insert" parameterType="test.com.web.ArduinoVO">
 		insert into
@@ -22,7 +23,8 @@
 	</delete>
 
 	<select id="select" resultType="test.com.web.ArduinoVO">
-		select * from arduino order by num
+		select * from arduino order by
+		num
 		desc
 	</select>
 
@@ -37,7 +39,7 @@
 	<!-- select * from member where name like ?"; -->
 	<select id="searchList" resultType="test.com.web.ArduinoVO"
 		parameterType="hashmap">
-		select * from arduino 
+		select * from arduino
 		<!-- where name LIKE #{searchWord} -->
 		<if test="searchKey =='name'">
 			where name LIKE #{searchWord}
@@ -46,4 +48,12 @@
 			where tel LIKE #{searchWord}
 		</if>
 	</select>
+
+	<!-- Accident -->
+	<insert id="insertAccident" parameterType="test.com.web.AccidentVO">
+		insert into
+		accident(num,status,serialnum)
+		values(#{num},#{status},#{serialnum})
+	</insert>
+
 </mapper>

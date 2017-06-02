@@ -21,7 +21,7 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 	
 	@Override
 	public int insert(ArduinoVO vo) {
-		System.out.println("ArduinoVOimpl:insert()...");
+		System.out.println("ArduinoDAOimpl:insert()...");
 		System.out.println(vo.getNum());
 		System.out.println(vo.getSerialnum());
 		System.out.println(vo.getLatitude());
