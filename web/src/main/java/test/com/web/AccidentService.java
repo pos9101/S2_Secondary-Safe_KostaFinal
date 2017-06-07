@@ -1,4 +1,4 @@
-package test.com.web;
+      package test.com.web;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class AccidentService {
 	
 	@Autowired
-	AccidentDAO dao;
+	private AccidentDAO dao;
 	
 	public int insert(AccidentVO vo){
 		return dao.insert(vo);

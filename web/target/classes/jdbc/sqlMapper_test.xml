@@ -55,5 +55,42 @@
 		accident(num,status,serialnum)
 		values(#{num},#{status},#{serialnum})
 	</insert>
+	
+	<update id="updateAccident" parameterType="test.com.web.ArduinoVO">
+		update accident set
+		status=#{status},serialnum=#{serialnum} where num = #{num}
+	</update>
+	
+	<delete id="deleteAccident" parameterType="int">
+		delete from accident where
+		num=#{num}
+	</delete>
+
+	<select id="selectAccident" resultType="test.com.web.ArduinoVO">
+		select * from accident order by
+		num
+		desc
+	</select>
+
+
+	<!-- select * from member where id=? -->
+	<select id="searchAccident" resultType="test.com.web.ArduinoVO">
+		select * from accident where num =
+		#{num}
+
+	</select>
+
+	<!-- select * from member where name like ?"; -->
+	<select id="searchAccidentList" resultType="test.com.web.ArduinoVO"
+		parameterType="hashmap">
+		select * from accident
+		<!-- where name LIKE #{searchWord} -->
+		<if test="searchKey =='name'">
+			where status LIKE #{searchWord}
+		</if>
+		<if test="searchKey !='name'">
+			where serialnum LIKE #{searchWord}
+		</if>
+	</select>
 
 </mapper>

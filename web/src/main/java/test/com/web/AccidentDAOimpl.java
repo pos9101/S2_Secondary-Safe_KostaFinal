@@ -8,7 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AccidentDAOimpl implements AccidentDAO {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AccidentDAOimpl.class);
@@ -81,7 +83,7 @@ public class AccidentDAOimpl implements AccidentDAO {
 		map.put("searchKey", searchKey);
 		map.put("searchWord", "%" + searchWord +"%");
 		
-		List<AccidentVO> list = sqlSession.selectList("selectAccidentList",map);
+		List<AccidentVO> list = sqlSession.selectList("searchAccidentList",map);
 		
 		return list;
 	}

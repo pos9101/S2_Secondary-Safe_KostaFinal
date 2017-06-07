@@ -31,7 +31,7 @@ public class TestControllerTest {
 		logger.info("asTest()..." + as);
 		// assertNull(as);
 		assertNotNull(as);
-		ArduinoVO vo = new ArduinoVO(11, "aaaa2", "bbbb2", "dfdfdf", "dfdf");
+		ArduinoVO vo = new ArduinoVO(11, "aaaa3", "bbbb2", "dfdfdf", "dfdf");
 		assertNotNull(as.insert(vo));
 	}
 	
@@ -40,7 +40,7 @@ public class TestControllerTest {
 		logger.info("acsTest()..."+acs);
 		//assertNull(acs);
 		assertNotNull(acs);
-		AccidentVO vo = new AccidentVO(11, "occured","AC123456");
+		AccidentVO vo = new AccidentVO(1, "occured","SA1255");
 		assertNotNull(acs.insert(vo));
 	}
 	
