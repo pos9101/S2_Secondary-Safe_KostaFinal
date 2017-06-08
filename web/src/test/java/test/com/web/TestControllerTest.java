@@ -2,6 +2,9 @@ package test.com.web;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -42,6 +45,35 @@ public class TestControllerTest {
 		assertNotNull(acs);
 		AccidentVO vo = new AccidentVO(1, "occured","SA1255");
 		assertNotNull(acs.insert(vo));
+	}
+	
+	@Test
+	public void selectArduino(){
+		logger.info("selectArduino()...");
+		assertNotNull(as);
+		List<ArduinoVO> list = as.select();
+		
+		
+		Iterator<ArduinoVO> iter = list.iterator();
+		while(iter.hasNext()){
+			ArduinoVO vo = iter.next();
+			iter.remove();
+			logger.info(vo.getNum()+" "+vo.getLatitude()+" "+vo.getLongitude()+" "+vo.getSerialnum()+ " " + vo.getAtime());
+		}
+	}
+	
+	@Test
+	public void selectAccident(){
+		logger.info("selectAccident()...");
+		assertNotNull(acs);
+		List<AccidentVO> list = acs.select();
+		
+		Iterator<AccidentVO> iter = list.iterator();
+		while(iter.hasNext()){
+			AccidentVO vo = iter.next();
+			iter.remove();
+			logger.info(vo.getNum()+" "+ vo.getStatus()+ " "+ vo.getSerialnum());
+		}
 	}
 	
 }
