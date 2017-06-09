@@ -60,5 +60,15 @@ public class JsonController {
 
 		return "jsonView";
 	}
+	
+	@RequestMapping(value = {"/json/datas"}, method = RequestMethod.GET)
+	public String datas(Model model){
+		logger.info("datas()");
+		
+		Map<String, List<DataVO>> map = new HashMap<String, List<DataVO>>();
+		
+		
+		return "jsonView";
+	}
 
 }

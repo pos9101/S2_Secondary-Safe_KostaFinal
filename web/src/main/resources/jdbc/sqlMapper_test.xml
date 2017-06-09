@@ -92,5 +92,13 @@
 			where serialnum LIKE #{searchWord}
 		</if>
 	</select>
+	
+	<!-- select datas (join ArduinoVO and AccidentVO) -->
+	<select id="selectDatas" resultType="test.com.web.DataVO">
+		select arduino.serialnum, latitude, longitude, atime, status
+		from arduino join accident
+		on arduino.serialnum = accident.serialnum;
+	
+	</select>
 
 </mapper>

@@ -4,11 +4,12 @@ public class AccidentVO {
 	private int num;
 	private String status;
 	private String serialnum;
+
 	
 	public AccidentVO() {
 		num = 0;
 		status = "solved";
-		serialnum = "AC12676668";
+		serialnum = "SF17060800";
 	}
 
 	public AccidentVO(int num, String status, String serialnum){
@@ -40,7 +41,6 @@ public class AccidentVO {
 	public void setSerialnum(String serialnum) {
 		this.serialnum = serialnum;
 	}
-	
 
 	
 	

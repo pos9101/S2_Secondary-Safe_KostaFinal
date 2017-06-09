@@ -23,5 +23,10 @@ public class AdminController {
 		
 		return "manager/admin";
 	}
+	@RequestMapping(value = "/arduino.in", method = RequestMethod.GET)
+	public void arduinoIn() {
+		logger.info("Arduino.in()..");
+		
+	}
 	
 }

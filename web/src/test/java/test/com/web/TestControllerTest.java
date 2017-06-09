@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -27,6 +28,9 @@ public class TestControllerTest {
 	
 	@Autowired
 	private AccidentService acs;
+	
+	@Autowired
+	SqlSession sqlSession;
 
 	@Test
 	public void asTest() {
@@ -34,7 +38,7 @@ public class TestControllerTest {
 		logger.info("asTest()..." + as);
 		// assertNull(as);
 		assertNotNull(as);
-		ArduinoVO vo = new ArduinoVO(11, "aaaa3", "bbbb2", "dfdfdf", "dfdf");
+		ArduinoVO vo = new ArduinoVO(1, "SF17060800", "bbbb2", "dfdfdf", "dfdf");
 		assertNotNull(as.insert(vo));
 	}
 	
@@ -43,7 +47,7 @@ public class TestControllerTest {
 		logger.info("acsTest()..."+acs);
 		//assertNull(acs);
 		assertNotNull(acs);
-		AccidentVO vo = new AccidentVO(1, "occured","SA1255");
+		AccidentVO vo = new AccidentVO(1, "occured","SF17060800");
 		assertNotNull(acs.insert(vo));
 	}
 	
@@ -73,6 +77,20 @@ public class TestControllerTest {
 			AccidentVO vo = iter.next();
 			iter.remove();
 			logger.info(vo.getNum()+" "+ vo.getStatus()+ " "+ vo.getSerialnum());
+		}
+	}
+	
+	@Test
+	public void selectData(){
+		logger.info("selectData()...");
+		List<DataVO> list = null;
+		list = sqlSession.selectList("selectDatas");
+		
+		Iterator<DataVO> iter = list.iterator();
+		while(iter.hasNext()){
+			DataVO vo = iter.next();
+			iter.remove();
+			logger.info(vo.getSerialnum()+" "+vo.getLatitude()+" "+vo.getLongitude()+" "+vo.getStatus()+" "+vo.getAtime());
 		}
 	}
 	
