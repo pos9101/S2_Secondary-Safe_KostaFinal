@@ -1,0 +1,5 @@
+10-Feb-2017 16:27:57.959 정보 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+10-Feb-2017 16:27:57.959 정보 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+10-Feb-2017 16:28:58.227 정보 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.ApplicationContext.log SessionListener: sessionDestroyed('0F669EB5F9F153348B8C00A782E86AF2')
+10-Feb-2017 16:31:07.659 정보 [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+10-Feb-2017 16:31:07.659 정보 [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
