@@ -1,0 +1,56 @@
+09-Mar-2017 09:51:02.748 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M17
+09-Mar-2017 09:51:02.754 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 10 2017 20:59:20 UTC
+09-Mar-2017 09:51:02.754 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+09-Mar-2017 09:51:02.754 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.12.3
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_121-b13
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17
+09-Mar-2017 09:51:02.755 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17
+09-Mar-2017 09:51:02.756 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/conf/logging.properties
+09-Mar-2017 09:51:02.756 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Mar-2017 09:51:02.757 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Mar-2017 09:51:02.757 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Mar-2017 09:51:02.757 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17
+09-Mar-2017 09:51:02.757 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17
+09-Mar-2017 09:51:02.757 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/temp
+09-Mar-2017 09:51:02.757 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/OKSU/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+09-Mar-2017 09:51:02.901 정보 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+09-Mar-2017 09:51:02.929 정보 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+09-Mar-2017 09:51:02.932 정보 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+09-Mar-2017 09:51:02.933 정보 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+09-Mar-2017 09:51:02.934 정보 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 569 ms
+09-Mar-2017 09:51:02.960 정보 [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Mar-2017 09:51:02.960 정보 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M17
+09-Mar-2017 09:51:02.981 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/web13ServletJSON.war
+09-Mar-2017 09:51:03.377 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/web13ServletJSON.war has finished in 395 ms
+09-Mar-2017 09:51:03.377 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/web16FileUpload.war
+09-Mar-2017 09:51:03.423 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/web16FileUpload.war has finished in 46 ms
+09-Mar-2017 09:51:03.425 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/docs
+09-Mar-2017 09:51:03.450 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/docs has finished in 25 ms
+09-Mar-2017 09:51:03.450 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/examples
+09-Mar-2017 09:51:03.831 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/examples has finished in 381 ms
+09-Mar-2017 09:51:03.831 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/host-manager
+09-Mar-2017 09:51:03.877 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/host-manager has finished in 45 ms
+09-Mar-2017 09:51:03.877 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/manager
+09-Mar-2017 09:51:03.919 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/manager has finished in 42 ms
+09-Mar-2017 09:51:03.920 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/ROOT
+09-Mar-2017 09:51:03.959 정보 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/OKSU/Desktop/IOTstudy149/utils/apache-tomcat-9.0.0.M17/webapps/ROOT has finished in 39 ms
+09-Mar-2017 09:51:03.963 정보 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+09-Mar-2017 09:51:03.971 정보 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+09-Mar-2017 09:51:03.972 정보 [main] org.apache.catalina.startup.Catalina.start Server startup in 1038 ms
+09-Mar-2017 11:05:40.519 정보 [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+09-Mar-2017 11:05:40.540 정보 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+09-Mar-2017 11:05:40.617 정보 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+09-Mar-2017 11:05:40.732 정보 [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+09-Mar-2017 11:05:40.762 경고 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [web16FileUpload] appears to have started a thread named [File Reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+ org.apache.commons.io.FileCleaner$Reaper.run(FileCleaner.java:206)
+09-Mar-2017 11:05:40.777 정보 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+09-Mar-2017 11:05:40.781 정보 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+09-Mar-2017 11:05:40.782 정보 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8090"]
+09-Mar-2017 11:05:40.783 정보 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
