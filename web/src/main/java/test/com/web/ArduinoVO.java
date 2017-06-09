@@ -1,35 +1,25 @@
 package test.com.web;
 
 public class ArduinoVO {
-	private int num;
-	
+
 	private String serialnum;
-	private String latitude;
-	private String longitude;
+	private double latitude;
+	private double longitude;
 	private String atime;
 	
 	public ArduinoVO() {
-		num = 0;
 		serialnum = "SF17060800";
-		latitude ="37335887";
-		longitude = "126584063";
+		latitude = 37.401604;
+		longitude = 127.107402;
 		atime = "199101301330";
 	}
 	
-	public ArduinoVO(int num, String serialnum, String latitude, String longitude, String atime){
-		this.num = num;
+	public ArduinoVO(String serialnum, double latitude, double longitude, String atime){
+
 		this.serialnum = serialnum;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.atime = atime;
-	}
-	
-	public int getNum() {
-		return num;
-	}
-
-	public void setNum(int num) {
-		this.num = num;
 	}
 	
 	
@@ -39,18 +29,23 @@ public class ArduinoVO {
 	public void setSerialnum(String serialnum) {
 		this.serialnum = serialnum;
 	}
-	public String getLatitude() {
+	
+	public double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
+
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public String getLongitude() {
+
+	public double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
+
 	public String getAtime() {
 		return atime;
 	}

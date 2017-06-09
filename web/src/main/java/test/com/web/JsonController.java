@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class JsonController {
 	
 	@Autowired
 	private AccidentService acs;
+	
+	@Autowired
+	SqlSession sqlSession;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -66,6 +70,12 @@ public class JsonController {
 		logger.info("datas()");
 		
 		Map<String, List<DataVO>> map = new HashMap<String, List<DataVO>>();
+		List<DataVO> list = null;
+		list = sqlSession.selectList("selectDatas");
+		
+		map.put("totalAccidents", list);
+		
+		model.addAllAttributes(map);
 		
 		
 		return "jsonView";

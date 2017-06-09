@@ -11,6 +11,11 @@ public class AccidentVO {
 		status = "solved";
 		serialnum = "SF17060800";
 	}
+	
+	public AccidentVO(String status, String serialnum){
+		this.status = status;
+		this.serialnum = serialnum;
+	}
 
 	public AccidentVO(int num, String status, String serialnum){
 		this.num = num;

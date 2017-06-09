@@ -2,20 +2,20 @@ package test.com.web;
 
 public class DataVO {
 	private String serialnum;
-	private String latitude;
-	private String longitude;
+	private double latitude;
+	private double longitude;
 	private String atime;
 	private String status;
 	
 	public DataVO(){
 		serialnum = "SF17060800";
-		latitude = "37335887";
-		longitude = "126584063";
+		latitude = 37.401604;
+		longitude = 127.107402;
 		atime = "199101301330";
 		status = "solved";
 	}
 	
-	public DataVO(int num, String serialnum, String latitude, String longitude, String atime, String status){
+	public DataVO(int num, String serialnum, double latitude, double longitude, String atime, String status){
 		this.serialnum = serialnum;
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -31,19 +31,19 @@ public class DataVO {
 		this.serialnum = serialnum;
 	}
 
-	public String getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(String latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public String getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(String longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 

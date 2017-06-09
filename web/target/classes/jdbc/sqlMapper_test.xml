@@ -8,31 +8,31 @@
 	<!-- #{name},#{tel} -->
 	<insert id="insert" parameterType="test.com.web.ArduinoVO">
 		insert into
-		arduino(num,serialnum,latitude,longitude,atime)
-		values(#{num},#{serialnum},#{latitude},#{longitude},#{atime})
+		arduino(serialnum,latitude,longitude,atime)
+		values(#{serialnum},#{latitude},#{longitude},#{atime})
 	</insert>
 
 	<update id="update" parameterType="test.com.web.ArduinoVO">
 		update arduino set
-		name=#{name},tel=#{tel} where num = #{num}
+		name=#{name},tel=#{tel} where serialnum = #{serialnum}
 	</update>
 
 	<delete id="delete" parameterType="int">
 		delete from arduino where
-		num=#{num}
+		serialnum=#{serialnum}
 	</delete>
 
 	<select id="select" resultType="test.com.web.ArduinoVO">
 		select * from arduino order by
-		num
+		serialnum
 		desc
 	</select>
 
 
 	<!-- select * from member where id=? -->
 	<select id="search" resultType="test.com.web.ArduinoVO">
-		select * from arduino where num =
-		#{num}
+		select * from arduino where serialnum =
+		#{serialnum}
 
 	</select>
 

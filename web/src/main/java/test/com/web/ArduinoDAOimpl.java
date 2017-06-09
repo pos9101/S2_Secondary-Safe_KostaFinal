@@ -22,7 +22,6 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 	@Override
 	public int insert(ArduinoVO vo) {
 		System.out.println("ArduinoDAOimpl:insert()...");
-		System.out.println(vo.getNum());
 		System.out.println(vo.getSerialnum());
 		System.out.println(vo.getLatitude());
 		System.out.println(vo.getLongitude());
@@ -37,7 +36,6 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 
 	@Override
 	public int update(ArduinoVO vo) {
-		System.out.println(vo.getNum());
 		System.out.println(vo.getSerialnum());
 		System.out.println(vo.getLatitude());
 		System.out.println(vo.getLongitude());
@@ -52,18 +50,18 @@ public class ArduinoDAOimpl implements ArduinoDAO {
 
 	@Override
 	public int delete(ArduinoVO vo) {
-		System.out.println(vo.getNum());
+		System.out.println(vo.getSerialnum());
 		
 		int flag = 0;
 		
-		flag = sqlSession.delete("delete",vo.getNum());
+		flag = sqlSession.delete("delete",vo.getSerialnum());
 		
 		return flag;
 	}
 
 	@Override
 	public ArduinoVO search(ArduinoVO vo) {
-		logger.info("search()..." + vo.getNum());
+		logger.info("search()..." + vo.getSerialnum());
 		ArduinoVO avo = sqlSession.selectOne("search", vo);
 		
 		return avo;

@@ -2,6 +2,8 @@ package test.com.web;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -37,8 +39,14 @@ public class TestControllerTest {
 
 		logger.info("asTest()..." + as);
 		// assertNull(as);
+		Date now = new Date();
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd HH:mm");
+		logger.info(format.toString());
+		logger.info(format.format(now));
+		
 		assertNotNull(as);
-		ArduinoVO vo = new ArduinoVO(1, "SF17060800", "bbbb2", "dfdfdf", "dfdf");
+		ArduinoVO vo = new ArduinoVO("SF17060804", 123.61666, 78.246678, format.format(now));
 		assertNotNull(as.insert(vo));
 	}
 	
@@ -47,7 +55,7 @@ public class TestControllerTest {
 		logger.info("acsTest()..."+acs);
 		//assertNull(acs);
 		assertNotNull(acs);
-		AccidentVO vo = new AccidentVO(1, "occured","SF17060800");
+		AccidentVO vo = new AccidentVO("occured","SF17060804");
 		assertNotNull(acs.insert(vo));
 	}
 	
@@ -62,7 +70,7 @@ public class TestControllerTest {
 		while(iter.hasNext()){
 			ArduinoVO vo = iter.next();
 			iter.remove();
-			logger.info(vo.getNum()+" "+vo.getLatitude()+" "+vo.getLongitude()+" "+vo.getSerialnum()+ " " + vo.getAtime());
+			logger.info(+vo.getLatitude()+" "+vo.getLongitude()+" "+vo.getSerialnum()+ " " + vo.getAtime());
 		}
 	}
 	
