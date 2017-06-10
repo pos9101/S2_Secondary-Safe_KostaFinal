@@ -23,11 +23,6 @@ public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-	@Autowired
-	private ArduinoService as;
-	
-	@Autowired
-	private AccidentService acs;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -38,24 +33,6 @@ public class AdminController {
 		
 		return "manager/admin";
 	}
-	@RequestMapping(value = "/arduino.in", method = RequestMethod.GET)
-	public void arduinoIn(HttpServletRequest request) {
-		
-		logger.info("Arduino.in().."+request.getParameter("latitude")+" "+request.getParameter("longitude")+" "+request.getParameter("serialnum"));
-		
-		Date now = new Date();
-
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd HH:mm");
-		logger.info(format.toString());
-		logger.info(format.format(now));
-		
-		if((request.getParameter("serialnum"))!= null ){
-			logger.info("if...");
-			ArduinoVO vo = new ArduinoVO(request.getParameter("serialnum"), Double.parseDouble(request.getParameter("latitude")), Double.parseDouble(request.getParameter("longitude")),format.format(now));
-			as.insert(vo);
-		}else{
-			logger.info("else...");
-		}
 		
 		
 		
@@ -64,6 +41,5 @@ public class AdminController {
 		
 		
 		
-	}
 	
 }
