@@ -45,7 +45,7 @@ public class HomeController {
 		
 		Date now = new Date();
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd HH:mm");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd/HH:mm");
 		logger.info(format.toString());
 		logger.info(format.format(now));
 		
