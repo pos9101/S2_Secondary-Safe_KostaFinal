@@ -22,7 +22,7 @@
 				<!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
-                        <li>Manager Page</li>
+                        <li><a href="#body">Manager Page</a></li>
                         <li>API Introduction</li>
                         <li>OpenAPI References</li>
                         <li>Accident MAP</li>
