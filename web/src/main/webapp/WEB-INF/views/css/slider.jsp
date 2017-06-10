@@ -19,7 +19,7 @@
 					<div class="caption-content">
 						<h2 class="animated fadeInDown">S2 Secondary Safe</h2>
 						<span class="animated fadeInDown">신속한 사고감지 및 2차사고 방지 모듈입니다.</span> 
-						<a href="#" class="btn btn-blue btn-effect">Purchase</a>
+						<a href="#portfolio" class="btn btn-blue btn-effect">More</a>
 					</div>
 				</div>
 

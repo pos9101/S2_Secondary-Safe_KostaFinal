@@ -14,19 +14,11 @@
 	<jsp:include page="css/header.jsp"></jsp:include>
 	<jsp:include page="css/slider.jsp"></jsp:include>
 	<jsp:include page="css/section.jsp"></jsp:include>
-	
-	<jsp:include page="menu/menubar.jsp"></jsp:include>
-
-	Welcome to this page. We want to collect all accident cases. This page
-	is index of Sites.
+	<jsp:include page="css/portfolio.jsp"></jsp:include>
 
 
 
-
-	<jsp:include page="menu/staff.jsp"></jsp:include>
-
-
-
+	<jsp:include page="css/contact.jsp"></jsp:include>
 	<jsp:include page="css/main_jquery.jsp"></jsp:include>
 
 </body>
