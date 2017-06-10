@@ -51,8 +51,10 @@ public class HomeController {
 		
 		if((request.getParameter("serialnum"))!= null ){
 			logger.info("if...");
-			ArduinoVO vo = new ArduinoVO(request.getParameter("serialnum"), Double.parseDouble(request.getParameter("latitude")), Double.parseDouble(request.getParameter("longitude")),format.format(now));
-			as.insert(vo);
+			ArduinoVO ardu_vo = new ArduinoVO(request.getParameter("serialnum"), Double.parseDouble(request.getParameter("latitude")), Double.parseDouble(request.getParameter("longitude")),format.format(now));
+			AccidentVO acci_vo = new AccidentVO("occured",request.getParameter("serialnum"));
+			as.insert(ardu_vo);
+			acs.insert(acci_vo);
 		}else{
 			logger.info("else...");
 		}
