@@ -3,8 +3,11 @@
 <html>
 <head>
 	<title>S2 Secondary Safe</title>
+	<jsp:include page="menu/head.jsp"></jsp:include>
+	
 </head>
-<body>
+<jsp:include page="menu/header.jsp"></jsp:include>
+<body id="body">
 
 <jsp:include page="menu/menubar.jsp"></jsp:include>
 
