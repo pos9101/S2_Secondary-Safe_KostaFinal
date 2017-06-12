@@ -4,11 +4,14 @@
 	S2
 	Secondary Safe
 	</a>
+	
 </h1>
-<a href="admin">
+
+<a href="user/admin">
 Manager<br/>
 Page
 </a>
+
 
 <ul>
 	<li><a href="about.do">API Introduction</a></li>

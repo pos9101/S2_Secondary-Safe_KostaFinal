@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.com.web">
+	<!-- arduino -->
+	<!-- #{name},#{tel} -->
+	<insert id="insert" parameterType="test.com.web.ArduinoVO">
+		insert into
+		arduino(num,serialnum,latitude,longitude,atime)
+		values(#{num},#{serialnum},#{latitude},#{longitude},#{atime})
+	</insert>
+
+	<update id="update" parameterType="test.com.web.ArduinoVO">
+		update arduino set
+		name=#{name},tel=#{tel} where num = #{num}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from arduino where
+		num=#{num}
+	</delete>
+
+	<select id="select" resultType="test.com.web.ArduinoVO">
+		select * from arduino order by
+		num
+		desc
+	</select>
+
+
+	<!-- select * from member where id=? -->
+	<select id="search" resultType="test.com.web.ArduinoVO">
+		select * from arduino where num =
+		#{num}
+
+	</select>
+
+	<!-- select * from member where name like ?"; -->
+	<select id="searchList" resultType="test.com.web.ArduinoVO"
+		parameterType="hashmap">
+		select * from arduino
+		<!-- where name LIKE #{searchWord} -->
+		<if test="searchKey =='name'">
+			where name LIKE #{searchWord}
+		</if>
+		<if test="searchKey !='name'">
+			where tel LIKE #{searchWord}
+		</if>
+	</select>
+
+	<!-- Accident -->
+	<insert id="insertAccident" parameterType="test.com.web.AccidentVO">
+		insert into
+		accident(num,status,serialnum)
+		values(#{num},#{status},#{serialnum})
+	</insert>
+	
+	<update id="updateAccident" parameterType="test.com.web.ArduinoVO">
+		update accident set
+		status=#{status},serialnum=#{serialnum} where num = #{num}
+	</update>
+	
+	<delete id="deleteAccident" parameterType="int">
+		delete from accident where
+		num=#{num}
+	</delete>
+
+	<select id="selectAccident" resultType="test.com.web.ArduinoVO">
+		select * from accident order by
+		num
+		desc
+	</select>
+
+
+	<!-- select * from member where id=? -->
+	<select id="searchAccident" resultType="test.com.web.ArduinoVO">
+		select * from accident where num =
+		#{num}
+
+	</select>
+
+	<!-- select * from member where name like ?"; -->
+	<select id="searchAccidentList" resultType="test.com.web.ArduinoVO"
+		parameterType="hashmap">
+		select * from accident
+		<!-- where name LIKE #{searchWord} -->
+		<if test="searchKey =='name'">
+			where status LIKE #{searchWord}
+		</if>
+		<if test="searchKey !='name'">
+			where serialnum LIKE #{searchWord}
+		</if>
+	</select>
+
+</mapper>
