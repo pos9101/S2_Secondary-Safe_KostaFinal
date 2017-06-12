@@ -29,7 +29,7 @@
 			<!-- main nav -->
 			<nav class="collapse navbar-collapse navbar-right" role="navigation">
 				<ul id="nav" class="nav navbar-nav">
-					<li><a href="admin">Manager Page</a></li>
+					<li><a href="/web/admin">Manager Page</a></li>
 					<li><a href="#about">API Introduction</a></li>
 					<li><a href="#portfolio">S2 Module</a></li>
 					<li><a>OpenAPI References</a></li>
