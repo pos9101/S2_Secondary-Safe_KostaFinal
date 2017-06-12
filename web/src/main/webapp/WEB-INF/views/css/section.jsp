@@ -4,6 +4,12 @@
 <section id="about">
 	<div class="container">
 		<div class="row">
+
+			<div class="sec-title text-center wow animated fadeInDown">
+				<h2>API Introduction</h2>
+
+			</div>
+
 			<div class="col-md-4 wow animated fadeInLeft">
 				<div class="recent-works">
 					<h3>About</h3>
@@ -35,8 +41,8 @@
 				<div class="welcome-block">
 					<h3>Welcome To Our Site</h3>
 					<div class="message-body">
-						<img src="resources/bootstrap3.3.5/img/logo.gif"
-							class="pull-left" alt="member">
+						<img src="resources/bootstrap3.3.5/img/logo.gif" class="pull-left"
+							alt="member">
 						<p>사고알림 오픈 api 사이트입니다.</p>
 					</div>
 					<a href="#" class="btn btn-border btn-effect pull-right">Read

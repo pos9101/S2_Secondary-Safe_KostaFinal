@@ -18,7 +18,7 @@
 				<div class="slide-caption">
 					<div class="caption-content">
 						<h2 class="animated fadeInDown">S2 Secondary Safe</h2>
-						<span class="animated fadeInDown">신속한 사고감지 및 2차사고 방지 모듈입니다.</span> 
+						<span class="animated fadeInDown">신속한 사고감지 및 2차사고 방지 모듈입니다.</span>
 						<a href="#portfolio" class="btn btn-blue btn-effect">More</a>
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 				<div class="slide-caption">
 					<div class="caption-content">
 						<h2>S2 Secondary Safe</h2>
-						<span>사고현황을 지도로 확인 할 수 있습니다.</span> <a href="#"
+						<span>사고현황을 지도로 확인 할 수 있습니다.</span> <a href="#google_map"
 							class="btn btn-blue btn-effect">More</a>
 					</div>
 				</div>
