@@ -13,7 +13,7 @@
 						
 						<div class="col-md-9 wow animated fadeInRight">
 							<address class="contact-details">
-								<h3>Contact Us</h3>						
+														
 								<p><i class="fa fa-pencil"></i>Leader, Database, Web, Server : 박옥수<span>Server : 정인교</span> <span>Web, Database : 권이안</span><span>Android : 김우진</span>
 								<span>Web design, Module : 이인섭</span><span>Module, Accounting, Document : 박성근</span></p><br>
 								<p><i class="fa fa-phone"></i>Phone: (415) 124-5678 </p>

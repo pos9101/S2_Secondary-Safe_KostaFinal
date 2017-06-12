@@ -43,10 +43,9 @@
 					<div class="message-body">
 						<img src="resources/bootstrap3.3.5/img/logo.gif" class="pull-left"
 							alt="member">
-						<p>사고알림 오픈 api 사이트입니다.</p>
+						<p>사고알림 오픈 api 사이트입니다.<br>관리자는 Manager Page를 이용하십시오.</p>
 					</div>
-					<a href="#" class="btn btn-border btn-effect pull-right">Read
-						More</a>
+					<a href="admin" class="btn btn-border btn-effect pull-right">Manager Page</a>
 				</div>
 			</div>
 

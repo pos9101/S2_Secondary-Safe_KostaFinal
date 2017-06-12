@@ -59,4 +59,10 @@ public class HomeController {
 			logger.info("else...");
 		}
 	}
+	
+	@RequestMapping(value = "/admin.do", method = RequestMethod.GET)
+	public String admin() {
+		
+		return "manager/admin";
+	}
 }
