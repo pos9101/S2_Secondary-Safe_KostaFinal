@@ -19,7 +19,7 @@
 						</div>
 						
 						
-						<ul class="list-inline list-unstyled text-center">
+						<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
 						<li><img src="resources/bootstrap3.3.5/img/corn.png"
 							class="img-rounded">
 							<h5 class="text-info">박옥수</h5>
