@@ -8,7 +8,7 @@
 				<h2>Open API references</h2>
 				<p>사고정보를 지역, 시간, 사고유형 등의 조건을 통해 조회합니다.</p>
 			</div>
-			<table class="table table-bordered wow animated fadeInRight" border="1">
+			<table class="table table-bordered wow animated fadeInRight">
 				<tr class="success">
 					
 					<th>응답필드</th>

@@ -513,11 +513,11 @@ h1.navbar-brand {
 
 #about {
     background-color: #009EE3;
-    color: #fff;
+    color: #ffffff;
 }
 
 #about h3 {
-    color: #fff;
+    color: #ffffff;
     margin: 0 0 35px;
     text-transform: uppercase;
 }
@@ -613,6 +613,11 @@ h1.navbar-brand {
 /*=================================================================
 	Portfolio
 ==================================================================*/
+
+#portfolio {
+    background-color: #ffffff;
+    color: #252525;
+}
 
 .project-wrapper {
     margin: 0;
@@ -1002,6 +1007,11 @@ textarea.form-control {
 /*============================================================
 	Google Maps
 ==============================================================*/
+
+#google_map{
+	background-color: #ffffff;
+    color: #252525;
+}
 
 #google-map {
     padding: 0;
@@ -1439,4 +1449,19 @@ textarea.form-control {
     .footer-content {
         width: 380px;
     }
+}
+
+#reference {
+    background-color: #ffffff;
+    color: #252525;
+}
+
+/* #reference .table-bordered {
+	border-style: solid; 
+	border-color: #252525;
+} */
+
+#contact {
+    background-color: #009EE3;
+    color: #ffffff;
 }
