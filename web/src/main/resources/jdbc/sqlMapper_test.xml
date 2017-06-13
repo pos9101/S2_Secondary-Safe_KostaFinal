@@ -8,31 +8,31 @@
 	<!-- #{name},#{tel} -->
 	<insert id="insert" parameterType="test.com.web.ArduinoVO">
 		insert into
-		arduino(num,serialnum,latitude,longitude,atime)
-		values(#{num},#{serialnum},#{latitude},#{longitude},#{atime})
+		arduino(serialnum,latitude,longitude,atime)
+		values(#{serialnum},#{latitude},#{longitude},#{atime})
 	</insert>
 
 	<update id="update" parameterType="test.com.web.ArduinoVO">
 		update arduino set
-		name=#{name},tel=#{tel} where num = #{num}
+		name=#{name},tel=#{tel} where serialnum = #{serialnum}
 	</update>
 
 	<delete id="delete" parameterType="int">
 		delete from arduino where
-		num=#{num}
+		serialnum=#{serialnum}
 	</delete>
 
 	<select id="select" resultType="test.com.web.ArduinoVO">
 		select * from arduino order by
-		num
+		serialnum
 		desc
 	</select>
 
 
 	<!-- select * from member where id=? -->
 	<select id="search" resultType="test.com.web.ArduinoVO">
-		select * from arduino where num =
-		#{num}
+		select * from arduino where serialnum =
+		#{serialnum}
 
 	</select>
 
@@ -56,9 +56,9 @@
 		values(#{num},#{status},#{serialnum})
 	</insert>
 	
-	<update id="updateAccident" parameterType="test.com.web.ArduinoVO">
+	<update id="updateAccident" parameterType="test.com.web.AccidentVO">
 		update accident set
-		status=#{status},serialnum=#{serialnum} where num = #{num}
+		status=#{status} where serialnum = #{serialnum}
 	</update>
 	
 	<delete id="deleteAccident" parameterType="int">
@@ -66,7 +66,7 @@
 		num=#{num}
 	</delete>
 
-	<select id="selectAccident" resultType="test.com.web.ArduinoVO">
+	<select id="selectAccident" resultType="test.com.web.AccidentVO">
 		select * from accident order by
 		num
 		desc
@@ -74,14 +74,14 @@
 
 
 	<!-- select * from member where id=? -->
-	<select id="searchAccident" resultType="test.com.web.ArduinoVO">
+	<select id="searchAccident" resultType="test.com.web.AccidentVO">
 		select * from accident where num =
 		#{num}
 
 	</select>
 
 	<!-- select * from member where name like ?"; -->
-	<select id="searchAccidentList" resultType="test.com.web.ArduinoVO"
+	<select id="searchAccidentList" resultType="test.com.web.AccidentVO"
 		parameterType="hashmap">
 		select * from accident
 		<!-- where name LIKE #{searchWord} -->
@@ -92,5 +92,14 @@
 			where serialnum LIKE #{searchWord}
 		</if>
 	</select>
+	
+	<!-- select datas (join ArduinoVO and AccidentVO) -->
+	<select id="selectDatas" resultType="test.com.web.DataVO">
+		select arduino.serialnum, latitude, longitude, atime, status
+		from arduino join accident
+		on arduino.serialnum = accident.serialnum;
+	
+	</select>
+
 
 </mapper>

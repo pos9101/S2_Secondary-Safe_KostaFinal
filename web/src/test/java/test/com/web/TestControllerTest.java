@@ -2,6 +2,12 @@ package test.com.web;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,14 +30,23 @@ public class TestControllerTest {
 	
 	@Autowired
 	private AccidentService acs;
+	
+	@Autowired
+	SqlSession sqlSession;
 
 	@Test
 	public void asTest() {
 
 		logger.info("asTest()..." + as);
 		// assertNull(as);
+		Date now = new Date();
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd HH:mm");
+		logger.info(format.toString());
+		logger.info(format.format(now));
+		
 		assertNotNull(as);
-		ArduinoVO vo = new ArduinoVO(11, "aaaa3", "bbbb2", "dfdfdf", "dfdf");
+		ArduinoVO vo = new ArduinoVO("SF17060804", 123.61666, 78.246678, format.format(now));
 		assertNotNull(as.insert(vo));
 	}
 	
@@ -40,8 +55,51 @@ public class TestControllerTest {
 		logger.info("acsTest()..."+acs);
 		//assertNull(acs);
 		assertNotNull(acs);
-		AccidentVO vo = new AccidentVO(1, "occured","SA1255");
+		AccidentVO vo = new AccidentVO("occured","SF17060804");
 		assertNotNull(acs.insert(vo));
+	}
+	
+	@Test
+	public void selectArduino(){
+		logger.info("selectArduino()...");
+		assertNotNull(as);
+		List<ArduinoVO> list = as.select();
+		
+		
+		Iterator<ArduinoVO> iter = list.iterator();
+		while(iter.hasNext()){
+			ArduinoVO vo = iter.next();
+			iter.remove();
+			logger.info(+vo.getLatitude()+" "+vo.getLongitude()+" "+vo.getSerialnum()+ " " + vo.getAtime());
+		}
+	}
+	
+	@Test
+	public void selectAccident(){
+		logger.info("selectAccident()...");
+		assertNotNull(acs);
+		List<AccidentVO> list = acs.select();
+		
+		Iterator<AccidentVO> iter = list.iterator();
+		while(iter.hasNext()){
+			AccidentVO vo = iter.next();
+			iter.remove();
+			logger.info(vo.getNum()+" "+ vo.getStatus()+ " "+ vo.getSerialnum());
+		}
+	}
+	
+	@Test
+	public void selectData(){
+		logger.info("selectData()...");
+		List<DataVO> list = null;
+		list = sqlSession.selectList("selectDatas");
+		
+		Iterator<DataVO> iter = list.iterator();
+		while(iter.hasNext()){
+			DataVO vo = iter.next();
+			iter.remove();
+			logger.info(vo.getSerialnum()+" "+vo.getLatitude()+" "+vo.getLongitude()+" "+vo.getStatus()+" "+vo.getAtime());
+		}
 	}
 	
 }

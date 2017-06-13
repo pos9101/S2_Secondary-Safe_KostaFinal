@@ -29,7 +29,7 @@ public class AccidentDAOimpl implements AccidentDAO {
 		
 		flag = sqlSession.insert("insertAccident",vo);
 		
-		return 0;
+		return flag;
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class AccidentDAOimpl implements AccidentDAO {
 		
 		flag =sqlSession.delete("deleteAccident",vo);
 		
-		return 0;
+		return flag;
 	}
 
 	@Override
