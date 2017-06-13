@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -35,6 +36,11 @@ public class UserController {
 	@RequestMapping("/user/loginPage")
 	public String loginPage(){
 		return "/user/loginPage";
+	}
+	@RequestMapping("/user/jquery-3.1.1.js")
+	public String jquery(){
+		logger.info("Welcome jquery Page");
+		return "/user/jquery-3.1.1.js";
 	}
 	/**
 	 * Simply selects the home view to render by returning its name.

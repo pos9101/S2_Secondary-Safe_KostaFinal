@@ -12,5 +12,6 @@
 <body>
 <p>${errMsg }</p>
 <p>${auth }</p>
+<a href=" <c:url value="/user/logout"/>">Logout 관리자 계정으로 로그인하기</a>
 </body>
 </html>

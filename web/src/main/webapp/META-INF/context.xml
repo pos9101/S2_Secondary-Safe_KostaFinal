@@ -13,8 +13,21 @@
   driverClassName="com.mysql.jdbc.Driver" 
   loginTimeout="10" 
   maxWait="5000"
-  username="root" 
-  password="hi123456" 
+  username="accidentManager" 
+  password="iot149manager" 
   testOnBorrow="true"
-  url="jdbc:mysql://localhost:3306/s2" />
+  url="jdbc:mysql://localhost:3306/springdb" />
 </Context>
+<!-- <Context> -->
+<!--  <Resource  -->
+<!--   name="study/security"  -->
+<!--   auth="Container"  -->
+<!--   type="javax.sql.DataSource" -->
+<!--   driverClassName="com.mysql.jdbc.Driver"  -->
+<!--   loginTimeout="10"  -->
+<!--   maxWait="5000" -->
+<!--   username="root"  -->
+<!--   password="hi123456"  -->
+<!--   testOnBorrow="true" -->
+<!--   url="jdbc:mysql://localhost:3306/s2" /> -->
+<!-- </Context> -->
