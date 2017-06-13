@@ -58,7 +58,7 @@
 	
 	<update id="updateAccident" parameterType="test.com.web.AccidentVO">
 		update accident set
-		status=#{status},serialnum=#{serialnum} where num = #{num}
+		status=#{status} where serialnum = #{serialnum}
 	</update>
 	
 	<delete id="deleteAccident" parameterType="int">
