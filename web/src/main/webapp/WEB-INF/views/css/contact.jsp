@@ -30,7 +30,7 @@
 							class="img-rounded">
 							<h5 class="text-info">권이안</h5>
 					</ul>
-					<ul class="list-inline list-unstyled text-center">
+					<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
 						<li><img src="resources/bootstrap3.3.5/img/wujin.png"
 							class="img-rounded">
 							<h5 class="text-info">김우진</h5>
