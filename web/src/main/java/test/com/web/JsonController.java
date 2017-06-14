@@ -61,7 +61,7 @@ public class JsonController {
 		map.put("accidents", list);
 		
 		model.addAllAttributes(map);
-
+		
 		return "jsonView";
 	}
 	

@@ -114,27 +114,20 @@ public class HomeController {
 		
 		System.out.println(serialnum + " "+ status);
 		
-		
 		if(serialnum != null ){
 			logger.info("if...");
 			AccidentVO acci_vo = new AccidentVO(status, serialnum);
-			
 			int flag= acs.update(acci_vo);
-			
-			
 			
 		}else{
 			logger.info("else...");
 		}
-		
 		return "user/admin";
-		
 	}
 	
 	
 	@RequestMapping(value = "/admin.do", method = RequestMethod.GET)
 	public String admin() {
-		
 		return "user/admin";
 	}
 }

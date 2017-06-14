@@ -28,9 +28,7 @@
 				var str = "";
 				 for ( var i in temp) {
 					str = str.concat("<tr>");
-					str = str.concat("<form action='/web/webUpdate.in' method='post'>");
 					str = str.concat("<td>");
-					str = str.concat("<input type='hidden' name='serialnum' value="+temp[i].serialnum+" readonly>");
 					str = str.concat(temp[i].serialnum);
 					str = str.concat("</td>");
 					str = str.concat("<td>");
@@ -43,12 +41,26 @@
 					str = str.concat(temp[i].atime);
 					str = str.concat("</td>");
 					str = str.concat("<td>");
-					str = str.concat("<input type='hidden' name='status' value="+temp[i].status+">");
-					str = str.concat("<input type='submit' value="+temp[i].status+">");
-					str = str.concat("</td>");
+					str = str.concat("<form action='/web/webUpdate.in' method='post'>");
+					str = str.concat("<input type='hidden' name='serialnum' value="+temp[i].serialnum+">");
+					if(temp[i].status == "occured"){
+						str = str.concat("<input type='hidden' name='status' value="+"processing"+">");
+					}else if(temp[i].status == "processing"){
+						str = str.concat("<input type='hidden' name='status' value="+"solved"+">");
+					}else{
+						str = str.concat("<input type='hidden' name='status' value="+"occured"+">");
+					}
+					if(temp[i].status == "occured"){
+					str = str.concat("<input type='submit' value="+"processing"+">");
+					}else if(temp[i].status == "processing"){
+					str = str.concat("<input type='submit' value="+"solved"+">");
+					}else{
+					str = str.concat("<input type='submit' value="+"occured"+">");
+					}
 					str = str.concat("</form>");
+					str = str.concat("</td>");
 					str = str.concat("</tr>");
-				}
+				}	
 				$("#table1").append(str); 
 			},
 			error : function(xhr, desc, err) {
@@ -59,23 +71,13 @@
 	})
 </script>
 </head>
-
 <body>
 <h1>Admin Page</h1>
-
 <sec:authentication property="principal.username"/>님 환영합니다.
 <a href=" <c:url value="/user/logout"/>">Logout</a>
 <p><a href="<c:url value="/"/>">Home</a> </p>
 </body>
-
-<form action='/web/webUpdate.in' method='post'>
-<input type='text' name="serialnum" value="SF16061201" readonly>
-<input type='hidden' name="status" value="solved">
-<input type='submit' value="send">
-</form>
-
 <table id="table1">
 <tr><td>serialnum</td><td>latitude</td><td>longitude</td><td>time</td><td>status</td></tr>
-
 </table>
 </html>
