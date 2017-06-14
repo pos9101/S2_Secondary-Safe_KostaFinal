@@ -19,25 +19,25 @@
 						</div>
 						
 						
-						<ul class="list-inline list-unstyled text-center">
-						<li><img src="resources/bootstrap3.3.5/img/author.jpg"
+						<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
+						<li><img src="resources/bootstrap3.3.5/img/corn.png"
 							class="img-rounded">
 							<h5 class="text-info">박옥수</h5>
-						<li><img src="resources/bootstrap3.3.5/img/author.jpg"
+						<li><img src="resources/bootstrap3.3.5/img/gyo.png"
 							class="img-rounded">
 							<h5 class="text-info">정인교</h5>
-						<li><img src="resources/bootstrap3.3.5/img/author.jpg"
+						<li><img src="resources/bootstrap3.3.5/img/ean.png"
 							class="img-rounded">
 							<h5 class="text-info">권이안</h5>
 					</ul>
-					<ul class="list-inline list-unstyled text-center">
-						<li><img src="resources/bootstrap3.3.5/img/author.jpg"
+					<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
+						<li><img src="resources/bootstrap3.3.5/img/wujin.png"
 							class="img-rounded">
 							<h5 class="text-info">김우진</h5>
-						<li><img src="resources/bootstrap3.3.5/img/author.jpg"
+						<li><img src="resources/bootstrap3.3.5/img/inseop.png"
 							class="img-rounded">
 							<h5 class="text-info">이인섭</h5>
-						<li><img src="resources/bootstrap3.3.5/img/author.jpg"
+						<li><img src="resources/bootstrap3.3.5/img/sunken.png"
 							class="img-rounded">
 							<h5 class="text-info">박성근</h5>
 					</ul>

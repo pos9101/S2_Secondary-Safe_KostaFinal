@@ -37,7 +37,7 @@
 				<tr>
 					<td>atime</td>
 					<td>문자열</td>
-					<td>사건발생시간</td>
+					<td>사건 발생 시간</td>
 				</tr>
 				
 				<tr>
