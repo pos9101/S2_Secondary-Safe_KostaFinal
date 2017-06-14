@@ -12,7 +12,6 @@
 	<http pattern="/resources/**" security="none"></http>
 
 	<http auto-config="true" use-expressions="true" create-session="never">
-		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/user/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER','ROLE_TEST','ROLE_ADMIN','ROLE_GUEST')" />
@@ -43,9 +42,6 @@
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="userService">
-			<password-encoder ref="passwordEncoder">
-				<salt-source user-property="username"/>
-			</password-encoder>
 		</authentication-provider>
 	</authentication-manager>
 	
