@@ -23,5 +23,7 @@
 	<jsp:include page="css/contact.jsp"></jsp:include>
 	<jsp:include page="css/main_jquery.jsp"></jsp:include>
 </main>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCivaCVnKt_UtQPD8Ugs_OkxBFOsoRRh2Q&callback=initMap"
+    async defer></script>
 </body>
 </html>
