@@ -4,6 +4,7 @@ public class AccidentVO {
 	private int num;
 	private String status;
 	private String serialnum;
+
 	
 	public AccidentVO() {
 		num = 0;

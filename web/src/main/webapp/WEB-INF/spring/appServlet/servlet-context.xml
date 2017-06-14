@@ -25,8 +25,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="test.com.web" />
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-	<context:component-scan base-package="test.com.login" />
+	<context:component-scan base-package="test.com.web.login" />
 	<security:global-method-security secured-annotations="enabled"/>
 	
 	

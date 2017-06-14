@@ -24,6 +24,7 @@
 	<!-- 3.mybatis -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:jdbc/mybatis.xml" />
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:jdbc/sqlMapper_test.xml</value>
@@ -43,5 +44,5 @@
 		id="jsonView">
 		<property name="contentType" value="application/json;charset=UTF-8" />
 	</bean>
-
+	
 </beans>

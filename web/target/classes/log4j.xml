@@ -9,7 +9,6 @@
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
 	</appender>
-	
 	<logger name="org.mybatis">
 		<level value="debug" />
 	</logger>
@@ -17,7 +16,6 @@
 	<logger name="java.sql">
 		<level value="debug" />
 	</logger>
-	
 	<!-- Application Loggers -->
 	<logger name="test.com.web">
 		<level value="info" />

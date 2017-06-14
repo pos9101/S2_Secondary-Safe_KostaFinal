@@ -1,6 +1,7 @@
 package test.com.web;
 
 public class ArduinoVO {
+
 	private String serialnum;
 	private double latitude;
 	private double longitude;
@@ -20,6 +21,7 @@ public class ArduinoVO {
 		this.longitude = longitude;
 		this.atime = atime;
 	}
+	
 	
 	public String getSerialnum() {
 		return serialnum;

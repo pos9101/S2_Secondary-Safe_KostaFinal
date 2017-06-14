@@ -12,9 +12,10 @@
 	<http pattern="/resources/**" security="none"></http>
 
 	<http auto-config="true" use-expressions="true" create-session="never">
+		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/user/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/**" access="permitAll" />
-		<intercept-url pattern="user/**" access="hasAnyRole('ROLE_USER','ROLE_TEST','ROLE_ADMIN','ROLE_GUEST')" />
+		<intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER','ROLE_TEST','ROLE_ADMIN','ROLE_GUEST')" />
 		<form-login 
 			login-page="/user/loginPage"
 			login-processing-url="/user/login" 
@@ -30,28 +31,13 @@
 	</http>
 	
 	<beans:bean id="userDeniedHandler"
-		class="test.com.login.UserDeniedHandler"></beans:bean>
+		class="test.com.web.login.UserDeniedHandler"></beans:bean>
 	<beans:bean id="userLoginSuccessHandler"
-		class="test.com.login.UserLoginSuccessHandler"></beans:bean>
+		class="test.com.web.login.UserLoginSuccessHandler"></beans:bean>
 	<beans:bean id="userLoginFailureHandler"
-		class="test.com.login.UserLoginFailureHandler"></beans:bean>
+		class="test.com.web.login.UserLoginFailureHandler"></beans:bean>
 
-	<!-- <authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="guest" authorities="ROLE_GUEST" password="guest" />
-				<user name="user" authorities="ROLE_USER" password="user" />
-			</user-service>
-		</authentication-provider>
-	</authentication-manager> -->
-	
-	<!-- <jdbc-user-service data-source-ref="dataSource" id="userService"
-		users-by-username-query="SELECT EMAIL as username, PASSWD as password,ENABLED as enabled FROM user WHERE EMAIL=?"
-		authorities-by-username-query="SELECT EMAIL as username, AUTHORITY AS authority 
-										FROM user u
-										WHERE EMAIL=?"/> -->
-										
-	<beans:bean id="userService" class="test.com.login.UserAuthenticationService">
+	<beans:bean id="userService" class="test.com.web.login.UserAuthenticationService">
 		<beans:constructor-arg name="sqlSession" ref="sqlSession" />
 	</beans:bean>										
 
