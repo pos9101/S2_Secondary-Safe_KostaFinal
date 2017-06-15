@@ -14,7 +14,7 @@
 	console.log("hello");
 	$(function(){
 		$.ajax({
-			url : "http://localhost:8090/web/json/datas",
+			url : "http://localhost:8080/web/json/datas",
 			type : 'get',
 			contentType : "application/x-www-form-urlencoded",
 			dataType : "json",
