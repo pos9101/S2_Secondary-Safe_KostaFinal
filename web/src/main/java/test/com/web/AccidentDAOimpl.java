@@ -37,7 +37,7 @@ public class AccidentDAOimpl implements AccidentDAO {
 	@Override
 	public int update(AccidentVO vo) {
 		System.out.println("AccidentDAOimpl:update()...");
-		System.out.println(vo.getNum());
+//		System.out.println(vo.getNum());
 		System.out.println(vo.getStatus());
 		System.out.println(vo.getSerialnum());
 		

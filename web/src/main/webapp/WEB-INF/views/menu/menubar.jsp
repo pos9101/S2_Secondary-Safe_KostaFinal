@@ -5,7 +5,7 @@
 	Secondary Safe
 	</a>
 </h1>
-<a href="admin">
+<a href="">
 Manager<br/>
 Page
 </a>

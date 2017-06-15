@@ -92,8 +92,9 @@ public class HomeController {
 			logger.info("if...");
 			AccidentVO acci_vo = new AccidentVO(status, serialnum);
 			
-			acs.update(acci_vo);
-			
+			int flag= acs.update(acci_vo);
+			System.out.println("aaa");
+			System.out.println("FinalServer.m_outputList.size()"+FinalServer.m_outputList.size());
 			//socket...
 			for(int i=0 ; i<FinalServer.m_outputList.size() ; i++ ){
 				FinalServer.m_outputList.get(i).println("statusChanged");
@@ -105,13 +106,29 @@ public class HomeController {
 			logger.info("else...");
 		}
 		
-		
-		
 	}
+	
+	@RequestMapping(value = "/webUpdate.in",method = RequestMethod.POST)
+	public String webUpdate(@RequestParam String serialnum,@RequestParam String status){
+		logger.info("accidentUpdate()...");
+		
+		System.out.println(serialnum + " "+ status);
+		
+		if(serialnum != null ){
+			logger.info("if...");
+			AccidentVO acci_vo = new AccidentVO(status, serialnum);
+			int flag= acs.update(acci_vo);
+			
+		}else{
+			logger.info("else...");
+		}
+		return "user/admin";
+	}
+	
 	
 	@RequestMapping(value = "/admin.do", method = RequestMethod.GET)
 	public String admin() {
-		
-		return "manager/admin";
+		return "user/admin";
 	}
+	
 }

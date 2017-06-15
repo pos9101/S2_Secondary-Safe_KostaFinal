@@ -100,6 +100,16 @@
 		on arduino.serialnum = accident.serialnum;
 	
 	</select>
-
-
+	
+	<!-- 	user data (join userServiceDaoimpl and userAuthenticaionService) -->
+	
+	<select id="selectUser" resultType="map">
+		SELECT 
+			EMAIL as username,
+		    PASSWD as password,
+		    ENABLED as enabled,
+		    AUTHORITY as authority
+		FROM USER
+		WHERE EMAIL = #{username} 
+	</select>	
 </mapper>
