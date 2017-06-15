@@ -13,24 +13,24 @@
 
 						<ul class="project-wrapper wow animated fadeInUp">
 							<li class="portfolio-item">
-								<img src="resources/bootstrap3.3.5/img/portfolio/item.jpg" class="img-responsive" alt="width 8mm * length 8.5mm * height 5.7mm">
+								<img src="resources/bootstrap3.3.5/img/portfolio/size.png" class="img-responsive" alt="width 8mm * length 8.5mm * height 5.7mm">
 								<figcaption class="mask">
 									<h3>Size</h3>
 									<p>width 8mm * length 8.5mm * height 5.7mm<br></p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Size" data-fancybox-group="works" href="resources/bootstrap3.3.5/img/portfolio/item.jpg"><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Size" data-fancybox-group="works" href="resources/bootstrap3.3.5/img/portfolio/size.png"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="resources/bootstrap3.3.5/img/portfolio/item2.jpg" class="img-responsive" alt="Grove-IMU 9DOF v2.0, LED, Speaker, GY-GPS6MV2, FSR, ESP8266">
+								<img src="resources/bootstrap3.3.5/img/portfolio/modules.png" class="img-responsive" alt="Grove-IMU 9DOF v2.0, LED, Speaker, GY-GPS6MV2, FSR, ESP8266">
 								<figcaption class="mask">
 									<h3>Modules</h3>
 									<p>Grove-IMU 9DOF v2.0, LED, Speaker, GY-GPS6MV2, FSR, ESP8266</p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Modules" href="resources/bootstrap3.3.5/img/portfolio/item2.jpg" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Modules" href="resources/bootstrap3.3.5/img/portfolio/modules.png" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							

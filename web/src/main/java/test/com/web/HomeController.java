@@ -130,4 +130,5 @@ public class HomeController {
 	public String admin() {
 		return "user/admin";
 	}
+	
 }
