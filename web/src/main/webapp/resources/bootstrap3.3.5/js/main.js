@@ -271,7 +271,7 @@ function init() {
 		} ]
 	};
 
-	$.getJSON('http://localhost:8090/web/json/datas', function(data) {
+	$.getJSON('http://52.231.26.49:8080/web/json/datas', function(data) {
 		console.log(data.totalAccidents[0].latitude);
 		console.log(data.totalAccidents[0].longitude);
 		// console.log(data[0].latitude);
