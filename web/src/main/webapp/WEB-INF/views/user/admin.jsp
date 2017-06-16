@@ -9,7 +9,7 @@
 <head>
 
 
-<jsp:include page="/WEB-INF/views/css/head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/css/head2.jsp"></jsp:include>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript">

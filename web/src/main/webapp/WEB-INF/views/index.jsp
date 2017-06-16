@@ -4,7 +4,7 @@
 <html lang="en" class="no-js">
 
 <head>
-<jsp:include page="css/head2.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/css/head2.jsp"></jsp:include>
 
 </head>
 
