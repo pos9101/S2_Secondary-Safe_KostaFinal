@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#CCCCCC"
+    android:paddingLeft="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/list_addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_gravity="right"
+            android:text="@string/time"/>
+        <TextView
+            android:id="@+id/list_atime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:layout_weight="0.5"
+            android:textSize="15sp"
+            android:text="atime"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:layout_gravity="right"
+            android:text="@string/serial" />
+        <TextView
+            android:id="@+id/list_acci"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:layout_weight="0.5"
+            android:textSize="15sp"
+            android:text="  serial" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">FinalProjectNavigation</string>
     <string name="title_activity_maps">Map</string>
+    <string name="calloff">사고신고 하기</string>
+    <string name="callon">사고신고 취소</string>
+
+    <string name="id">id</string>
+    <string name="password">password</string>
+    <string name="name">name</string>
+    <string name="tel">tel</string>
+    <string name="email">email</string>
+    <string name="man">남자</string>
+    <string name="woman">여자</string>
+
+    <string name="addrtitle">주소</string>
+    <string name="atime">발생시각 </string>
+    <string name="accinum">사고번호 </string>
+    <string name="result">해결여부</string>
+    <string name="no">아니오</string>
+    <string name="yes">예</string>
+    <string name="save">저장</string>
+    <string name="time">발생시각 : </string>
+    <string name="serial">사건번호 :</string>
 </resources>
