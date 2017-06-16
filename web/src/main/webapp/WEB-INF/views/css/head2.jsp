@@ -2,7 +2,11 @@
 <meta charset="UTF-8">
 <!-- Always force latest IE rendering engine or request Chrome Frame -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<<<<<<< HEAD
 <link rel="icon" type="image/gif"  href="../resources/bootstrap3.3.5/img/logo_edit.png"/>
+=======
+<link rel="icon" type="image/gif"  href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/img/logo_edit.png"/>
+>>>>>>> origin/web_error_fix
 <title>S2 SECONDARY SAFE</title>
 <!-- Meta Description -->
 <meta name="description" content="S2 SECONDARY SAFE">
@@ -22,23 +26,23 @@
 
 <!-- Fontawesome Icon font -->
 <link rel="stylesheet"
-	href="../resources/bootstrap3.3.5/css/font-awesome.min.css">
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/font-awesome.min.css">
 <!-- bootstrap.min -->
 <link rel="stylesheet"
-	href="../resources/bootstrap3.3.5/css/jquery.fancybox.css">
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/jquery.fancybox.css">
 <!-- bootstrap.min -->
 <link rel="stylesheet"
-	href="../resources/bootstrap3.3.5/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/bootstrap.min.css">
 <!-- bootstrap.min -->
 <link rel="stylesheet"
-	href="../resources/bootstrap3.3.5/css/owl.carousel.css">
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/owl.carousel.css">
 <!-- bootstrap.min -->
 <link rel="stylesheet"
-	href="../resources/bootstrap3.3.5/css/slit-slider.css">
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/slit-slider.css">
 <!-- bootstrap.min -->
-<link rel="stylesheet" href="../resources/bootstrap3.3.5/css/animate.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/animate.css">
 <!-- Main Stylesheet -->
-<link rel="stylesheet" href="../resources/bootstrap3.3.5/css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/main.css">
 
 <!-- Modernizer Script for old Browsers -->
-<script src="../resources/bootstrap3.3.5/js/modernizr-2.6.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap3.3.5/js/modernizr-2.6.2.min.js"></script>

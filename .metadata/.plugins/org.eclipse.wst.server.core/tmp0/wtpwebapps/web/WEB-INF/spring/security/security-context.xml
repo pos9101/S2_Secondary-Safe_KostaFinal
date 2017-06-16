@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<http pattern="/resources/**" security="none"></http>
+
+	<http auto-config="true" use-expressions="true" create-session="never">
+		<intercept-url pattern="/user/admin" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER','ROLE_TEST','ROLE_ADMIN','ROLE_GUEST')" />
+		<form-login 
+			login-page="/user/loginPage"
+			login-processing-url="/user/login" 
+			authentication-success-handler-ref="userLoginSuccessHandler"
+			authentication-failure-handler-ref="userLoginFailureHandler"
+			username-parameter="email" password-parameter="passwd" />
+			
+		<session-management>
+			<concurrency-control max-sessions="1" expired-url="/user/loginPage" error-if-maximum-exceeded="true"/>
+		</session-management>
+		<logout delete-cookies="true" logout-success-url="/user/loginPage" logout-url="/user/logout" invalidate-session="true"/>
+		<access-denied-handler ref="userDeniedHandler"/>
+	</http>
+	
+	<beans:bean id="userDeniedHandler"
+		class="test.com.web.login.UserDeniedHandler"></beans:bean>
+	<beans:bean id="userLoginSuccessHandler"
+		class="test.com.web.login.UserLoginSuccessHandler"></beans:bean>
+	<beans:bean id="userLoginFailureHandler"
+		class="test.com.web.login.UserLoginFailureHandler"></beans:bean>
+
+	<beans:bean id="userService" class="test.com.web.login.UserAuthenticationService">
+		<beans:constructor-arg name="sqlSession" ref="sqlSession" />
+	</beans:bean>										
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="userService">
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<beans:constructor-arg name="strength" value="256"></beans:constructor-arg>
+	</beans:bean>
+</beans:beans>
