@@ -5,11 +5,11 @@
 	prefix="sec"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html>
 <head>
 
 
-<jsp:include page="/WEB-INF/views/css/head2.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/css/head.jsp"></jsp:include>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -17,7 +17,7 @@
 	$(function() {
 		$
 				.ajax({
-					url : "http://localhost:8090/web/json/datas",
+					url : "http://52.231.26.49:8080/web/json/datas",
 					type : 'get',
 					contentType : "application/x-www-form-urlencoded",
 					dataType : "json",
