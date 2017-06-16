@@ -104,12 +104,12 @@
 	<!-- 	user data (join userServiceDaoimpl and userAuthenticaionService) -->
 	
 	<select id="selectUser" resultType="map">
-		SELECT 
-			EMAIL as username,
-		    PASSWD as password,
-		    ENABLED as enabled,
-		    AUTHORITY as authority
-		FROM USER
-		WHERE EMAIL = #{username} 
+		select 
+			email as username,
+		    passwd as password,
+		    enabled as enabled,
+		    authority as authority
+		from user
+		where email = #{username} 
 	</select>	
 </mapper>

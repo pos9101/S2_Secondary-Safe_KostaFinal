@@ -24,7 +24,7 @@
 	<jsp:include page="css/main_jquery.jsp"></jsp:include>
 </main>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmQrHH3z8ljfYjeJvATt1qlcSoF6zFTqo"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjbeIk1uoQYVycQ8q7SHqJKbt3bFlsE5w"
     async defer></script>                     
 </body>
 </html>
