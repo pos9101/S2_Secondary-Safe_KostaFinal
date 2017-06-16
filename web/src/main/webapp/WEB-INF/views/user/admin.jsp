@@ -84,7 +84,7 @@
 </head>
 <body id="body">
 	<div class="site-content" role="main">
-		<section id="reference">
+		<section id="contact">
 			<div class="container">
 				<div class="row">
 					<div class="sec-title text-center wow animated fadeInDown">
