@@ -2,11 +2,7 @@
 <meta charset="UTF-8">
 <!-- Always force latest IE rendering engine or request Chrome Frame -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<<<<<<< HEAD
-<link rel="icon" type="image/gif"  href="../resources/bootstrap3.3.5/img/logo_edit.png"/>
-=======
 <link rel="icon" type="image/gif"  href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/img/logo_edit.png"/>
->>>>>>> origin/web_error_fix
 <title>S2 SECONDARY SAFE</title>
 <!-- Meta Description -->
 <meta name="description" content="S2 SECONDARY SAFE">
