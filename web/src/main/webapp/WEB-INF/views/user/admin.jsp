@@ -44,6 +44,9 @@
 							str = str.concat(temp[i].atime);
 							str = str.concat("</td>");
 							str = str.concat("<td>");
+							str = str.concat(temp[i].status);
+							str = str.concat("</td>");
+							str = str.concat("<td>");
 							str = str
 									.concat("<form action='/web/webUpdate.in' method='post'>");
 							str = str
@@ -106,6 +109,7 @@
 							<td>longitude</td>
 							<td>time</td>
 							<td>status</td>
+							<td>status change</td>
 						</tr>
 					</table>
 				</div>
