@@ -33,7 +33,7 @@
 				<div class="slide-caption">
 					<div class="caption-content">
 						<h2>S2 Secondary Safe</h2>
-						<span>오픈 api로 실시간 사고현황을 확인 할 수 있습니다.</span> <a href="#reference"
+						<span>오픈 API로 실시간 사고현황을 확인 할 수 있습니다.</span> <a href="#reference"
 							class="btn btn-blue btn-effect">More</a>
 					</div>
 				</div>

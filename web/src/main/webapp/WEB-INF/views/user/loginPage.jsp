@@ -14,7 +14,7 @@
 	<center>
 		<br> <a href='/web'><img
 			src="${pageContext.request.contextPath}/resources/bootstrap3.3.5/img/logo_cut.png"></a>
-		
+
 
 		<form action='<c:url value="/user/login"/>' method="post">
 			<div class="container-fluid">
@@ -35,14 +35,13 @@
 						</p>
 					</div>
 					</hgroup>
-					<input type="submit" value="로그인" class="btn btn-blue btn-effect">
+					<input type="submit" value="LOGIN" class="btn btn-blue btn-effect">
 				</div>
 		</form>
-		<br>
-		<input type="button" value="홈" onclick="location.href='/web'" class="btn btn-blue btn-effect"><br>
+		<br> <input type="button" value="HOME"
+			onclick="location.href='/web'" class="btn btn-blue btn-effect"><br>
 		${errMsg}
 	</center>
-
 
 </body>
 </html>

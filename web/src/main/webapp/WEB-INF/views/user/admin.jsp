@@ -96,10 +96,10 @@
 							님 환영합니다.
 						</p>
 					</div>
-					<a href=" <c:url value="/user/logout"/>"
-						class="btn btn-border btn-effect pull-right">Logout</a> <a
-						href="<c:url value="/"/>"
-						class="btn btn-border btn-effect pull-right">Home</a>
+					
+					<input type="button" onclick="location.href='/web/user/logout'" class="btn btn-blue btn-effect" value="LOGOUT">
+					<input type="button" onclick="location.href='/web'" class="btn btn-blue btn-effect" value="HOME">
+					
 					<table id="table1"
 						class="table table-bordered wow animated fadeInRight">
 						<tr>
