@@ -6,7 +6,14 @@
 					<div class="row">
 						
 						<div class="sec-title text-center wow animated fadeInDown">
-							<h2>Contact</h2>
+							<ul class="list-inline list-unstyled text-center"><h2>Contact</h2></ul>
+						</div>
+						
+						<div class="col-md-1 wow animated fadeInRight">
+						<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
+						<li><img src="resources/bootstrap3.3.5/img/logo_circle.png">
+							<h5>Team</h5>
+						</ul>
 						</div>
 						
 						
@@ -22,24 +29,24 @@
 						<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
 						<li><img src="resources/bootstrap3.3.5/img/corn.png"
 							class="img-rounded">
-							<h5 class="text-info">박옥수</h5>
+							<h5>박옥수</h5>
 						<li><img src="resources/bootstrap3.3.5/img/gyo.png"
 							class="img-rounded">
-							<h5 class="text-info">정인교</h5>
+							<h5>정인교</h5>
 						<li><img src="resources/bootstrap3.3.5/img/ean.png"
 							class="img-rounded">
-							<h5 class="text-info">권이안</h5>
+							<h5>권이안</h5>
 					</ul>
 					<ul class="list-inline list-unstyled text-center wow animated fadeInRight">
 						<li><img src="resources/bootstrap3.3.5/img/wujin.png"
 							class="img-rounded">
-							<h5 class="text-info">김우진</h5>
+							<h5>김우진</h5>
 						<li><img src="resources/bootstrap3.3.5/img/inseop.png"
 							class="img-rounded">
-							<h5 class="text-info">이인섭</h5>
+							<h5>이인섭</h5>
 						<li><img src="resources/bootstrap3.3.5/img/sunken.png"
 							class="img-rounded">
-							<h5 class="text-info">박성근</h5>
+							<h5>박성근</h5>
 					</ul>
 						
 			

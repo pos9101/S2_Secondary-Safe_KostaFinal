@@ -119,7 +119,7 @@ main > section {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: #fff;
+	background: #56d8d5;
 	
 	-webkit-transform: scaleX(0);
 	   -moz-transform: scaleX(0);
@@ -512,7 +512,7 @@ h1.navbar-brand {
 ==================================================================*/
 
 #about {
-    background-color: #009EE3;
+    background-color: #191919;
     color: #ffffff;
 }
 
@@ -1462,6 +1462,6 @@ textarea.form-control {
 } */
 
 #contact {
-    background-color: #009EE3;
+    background-color: #191919;
     color: #ffffff;
 }

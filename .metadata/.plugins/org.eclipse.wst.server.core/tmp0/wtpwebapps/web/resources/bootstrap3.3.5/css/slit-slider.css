@@ -155,8 +155,11 @@
 }
 
 .bg-img-1 {
-	background-image: url(../img/slider/amodel.png);
-
+	background-image: url(../img/slider/acciden.png);
+	background-size: contain;
+	position: relative;
+  	padding-top: 20%;
+  	padding-bottom: 20%;
 }
 .bg-img-2 {
 	background-image: url(../img/slider/bgraph.jpg);

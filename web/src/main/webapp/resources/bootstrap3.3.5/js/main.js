@@ -5,7 +5,6 @@
 
 jQuery(window).load(function() {
 
-
 	$("#preloader").fadeOut("slow");
 
 });
@@ -287,45 +286,49 @@ function init() {
 		var map = new google.maps.Map(mapElement, mapOptions);
 
 		var markers = [];
-		var infowindows= [];
+		var infowindows = [];
 
 		for ( var i in data.totalAccidents) {
 
 			console.log(data.totalAccidents[i].serialnum);
 
 			infowindows[i] = new google.maps.InfoWindow({
-				content : data.totalAccidents[i].serialnum
-						+" "+ data.totalAccidents[i].latitude
-						+" "+ data.totalAccidents[i].longitude,
-						
-				position : new google.maps.LatLng(data.totalAccidents[i].latitde,data.totalAccidents[i].longitude)
+				content : data.totalAccidents[i].serialnum + " "
+						+ data.totalAccidents[i].latitude + " "
+						+ data.totalAccidents[i].longitude,
 
-			});
-
-			markers[i] = new google.maps.Marker({
 				position : new google.maps.LatLng(
-						data.totalAccidents[i].latitude,
-						data.totalAccidents[i].longitude),
-				map : map,
-				title : data.totalAccidents[i].serialnum,
-			// icon: 'resources/bootstrap3.3.5/img/icons/map-marker.png',
+						data.totalAccidents[i].latitde,
+						data.totalAccidents[i].longitude)
+
 			});
+
+			
+			if(data.totalAccidents[i].status == 'occured' | data.totalAccidents[i].status == 'processing'){
+				markers[i] = new google.maps.Marker({
+					position : new google.maps.LatLng(
+							data.totalAccidents[i].latitude,
+							data.totalAccidents[i].longitude),
+					map : map,
+					title : data.totalAccidents[i].serialnum,
+				// icon: 'resources/bootstrap3.3.5/img/icons/map-marker.png',
+				});
+			}
 			
 			
 			
+			
+
 		}
-		
-		for(var i in markers){
-			 google.maps.event.addListener(markers[i], 'click', function(innerKey) {
-			      return function() {
-			          infowindows[innerKey].open(map, markers[innerKey]);
-			      }
-			    }(i));
+
+		for ( var i in markers) {
+			google.maps.event.addListener(markers[i], 'click', function(
+					innerKey) {
+				return function() {
+					infowindows[innerKey].open(map, markers[innerKey]);
+				}
+			}(i));
 		}
-		
-		
-		
-		
 
 		// Let's also add a marker while we're at it
 		// var marker = new google.maps.Marker({

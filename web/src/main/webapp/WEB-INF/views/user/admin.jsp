@@ -114,6 +114,19 @@
 				</div>
 			</div>
 	</div>
+	<section id="google_map">
+	<div class="container">
+		<div class="row">
+
+			<div id="map-canvas" class="wow animated fadeInUp"></div>
+		</div>
+	</div>
+</section>
 	<jsp:include page="/WEB-INF/views/css/main_jquery.jsp"></jsp:include>
+	
+    <br>
+	
 </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjbeIk1uoQYVycQ8q7SHqJKbt3bFlsE5w"
+    async defer></script>    
 </html>

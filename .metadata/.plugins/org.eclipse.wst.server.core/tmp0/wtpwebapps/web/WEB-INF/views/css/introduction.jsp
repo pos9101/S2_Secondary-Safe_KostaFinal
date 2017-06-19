@@ -13,6 +13,7 @@
 			<div class="col-md-4 wow animated fadeInLeft">
 				<div class="recent-works">
 					<h3>About</h3>
+					<br>
 					<div id="works">
 
 						<div class="work-item">
@@ -38,14 +39,13 @@
 			</div>
 
 			<div class="col-md-7 col-md-offset-1 wow animated fadeInRight">
-				<div class="welcome-block">
+				<div class="recent-works">
 					<h3>Welcome To Our Site</h3>
+					<br>
 					<div class="message-body">
-						<img src="resources/bootstrap3.3.5/img/logo.gif" class="pull-left"
-							alt="member">
 						<p>사고알림 오픈 api 사이트입니다.<br>관리자는 Manager Page를 이용하십시오.</p>
 					</div>
-					<a href="user/admin" class="btn btn-border btn-effect pull-right">Manager Page</a>
+					<a href="user/admin" class="btn btn-blue btn-effect pull-right">Manager Page</a>
 				</div>
 			</div>
 

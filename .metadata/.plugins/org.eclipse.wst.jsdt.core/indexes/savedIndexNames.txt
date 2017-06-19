@@ -1,14 +1,6 @@
 INDEX VERSION 1.3+/Users/OKSU/Desktop/S2_Secondary-Safe_KostaFinal/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-133320910.index
-865960247.index
-3185295910.index
-4154841665.index
-136237301.index
-2227146212.index
-4115256398.index
-3202314371.index
 120796827.index
 7106675.index
-1378721224.index
-3186071747.index
+4115256398.index
 2035959246.index
+3202314371.index

@@ -5,7 +5,7 @@
 	prefix="sec"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html>
 <head>
 
 
@@ -17,7 +17,7 @@
 	$(function() {
 		$
 				.ajax({
-					url : "http://localhost:8090/web/json/datas",
+					url : "http://52.231.26.49:8080/web/json/datas",
 					type : 'get',
 					contentType : "application/x-www-form-urlencoded",
 					dataType : "json",
@@ -42,6 +42,9 @@
 							str = str.concat("</td>");
 							str = str.concat("<td>");
 							str = str.concat(temp[i].atime);
+							str = str.concat("</td>");
+							str = str.concat("<td>");
+							str = str.concat(temp[i].status);
 							str = str.concat("</td>");
 							str = str.concat("<td>");
 							str = str
@@ -84,7 +87,6 @@
 </head>
 <body id="body">
 	<div class="site-content" role="main">
-		<section id="reference">
 			<div class="container">
 				<div class="row">
 					<div class="sec-title text-center wow animated fadeInDown">
@@ -94,10 +96,10 @@
 							님 환영합니다.
 						</p>
 					</div>
-					<a href=" <c:url value="/user/logout"/>"
-						class="btn btn-border btn-effect pull-right">Logout</a> <a
-						href="<c:url value="/"/>"
-						class="btn btn-border btn-effect pull-right">Home</a>
+					
+					<input type="button" onclick="location.href='/web/user/logout'" class="btn btn-blue btn-effect" value="LOGOUT">
+					<input type="button" onclick="location.href='/web'" class="btn btn-blue btn-effect" value="HOME">
+					
 					<table id="table1"
 						class="table table-bordered wow animated fadeInRight">
 						<tr>
@@ -106,12 +108,25 @@
 							<td>longitude</td>
 							<td>time</td>
 							<td>status</td>
+							<td>status change</td>
 						</tr>
 					</table>
 				</div>
 			</div>
-		</section>
 	</div>
+	<section id="google_map">
+	<div class="container">
+		<div class="row">
+
+			<div id="map-canvas" class="wow animated fadeInUp"></div>
+		</div>
+	</div>
+</section>
 	<jsp:include page="/WEB-INF/views/css/main_jquery.jsp"></jsp:include>
+	
+    <br>
+	
 </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjbeIk1uoQYVycQ8q7SHqJKbt3bFlsE5w"
+    async defer></script>    
 </html>

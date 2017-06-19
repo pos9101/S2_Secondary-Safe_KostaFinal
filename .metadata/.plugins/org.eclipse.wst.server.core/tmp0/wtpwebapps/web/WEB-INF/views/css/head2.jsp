@@ -2,7 +2,8 @@
 <meta charset="UTF-8">
 <!-- Always force latest IE rendering engine or request Chrome Frame -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="icon" type="image/gif"  href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/img/logo_edit.png"/>
+<link rel="icon" type="image/gif"
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/img/logo_edit.png" />
 <title>S2 SECONDARY SAFE</title>
 <!-- Meta Description -->
 <meta name="description" content="S2 SECONDARY SAFE">
@@ -36,9 +37,15 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/slit-slider.css">
 <!-- bootstrap.min -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/animate.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/animate.css">
 <!-- Main Stylesheet -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/main.css">
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/main.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/bootstrap.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/bootstrap3.3.5/css/base.css">
 <!-- Modernizer Script for old Browsers -->
-<script src="${pageContext.request.contextPath}/resources/bootstrap3.3.5/js/modernizr-2.6.2.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/bootstrap3.3.5/js/modernizr-2.6.2.min.js"></script>
