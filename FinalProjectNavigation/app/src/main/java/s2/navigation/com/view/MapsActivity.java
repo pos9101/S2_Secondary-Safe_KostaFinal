@@ -1,6 +1,8 @@
 package s2.navigation.com.view;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +11,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -39,32 +42,29 @@ import java.util.Iterator;
 import java.util.List;
 
 import s2.navigation.com.BroadCastProximity;
+import s2.navigation.com.BroadCastProximity2;
 import s2.navigation.com.R;
 import s2.navigation.com.SoundPoolController;
 import s2.navigation.com.model.AccidentVO;
 import s2.navigation.com.model.RequestToServerDAO;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-
     private static GoogleMap mMap;
     private static LocationManager mLocMgr;
     private Location loc;
     private Marker mNowMarker;
-    private Circle m300Range;
+    private Circle m200Range;
     private Circle m100Range;
     private PendingIntent mPending100;
-    private PendingIntent mPending300;
+    private PendingIntent mPending200;
     private Thread mThread;
-    private final double sensingRadius300 = 300;
+    private final double sensingRadius200 = 200;
     private final double sensingRadius100 = 100;
     private static final int REQUEST_FINE_ACCESS = 123;
     private static final int REQUEST_COARSE_LOCATION = 234;
     private SoundPoolController pool;
     private RequestToServerDAO reqDAO = new RequestToServerDAO();
     private List<Marker> makerList = new ArrayList<>();
-    private MethodeHolder methodeHolder = new MethodeHolder();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,8 +79,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //접근할때 호출할 브로드캐스트등록
         Intent intent = new Intent(MapsActivity.this, BroadCastProximity.class);
         mPending100 = PendingIntent.getBroadcast(MapsActivity.this, 0, intent, 0);
-//        Intent intent1 = new Intent(this, BroadCastProximity300.class);
-//        mPending300 = PendingIntent.getBroadcast(this,0,intent1,0);
+        Intent intent1 = new Intent(this, BroadCastProximity2.class);
+        mPending200 = PendingIntent.getBroadcast(this,0,intent1,0);
 
         mLocMgr = (LocationManager) getSystemService(Context.LOCATION_SERVICE); //로케이션 메니져 등록
         mThread = new Thread(new ThreadSocket());
@@ -101,7 +101,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //위치정보 최신화 리스너 등록
         mLocMgr.requestLocationUpdates(gpsProvider, (long) 1000, 10, mLocListener);
 
-
     }
 
     @Override
@@ -110,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.overridePendingTransition(R.anim.anim_slide_out_top,R.anim.anim_nomove);
         mLocMgr.removeUpdates(mLocListener);    //리스너 해제
         mLocMgr.removeProximityAlert(mPending100); //접근 알람 해제
-//        mLocMgr.removeProximityAlert(mPending300); //접근 알람 해제
+        mLocMgr.removeProximityAlert(mPending200); //접근 알람 해제
 //        mThread.stop();
     }
 
@@ -148,26 +147,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions myCar = new MarkerOptions();
         myCar.icon(BitmapDescriptorFactory.fromResource(R.drawable.placeholder)); //아이콘 이미지
         myCar.position(pos); //마커위치
+
         mNowMarker = mMap.addMarker(myCar); //마커를 맵에 add
 
         m100Range = mMap.addCircle(new CircleOptions().center(pos) //사고 인지범위 100
                 .radius(sensingRadius100)
                 .fillColor(Color.parseColor("#22ff0000"))
                 .strokeWidth(0f));
-//        m300Range = mMap.addCircle(new CircleOptions().center(pos) //사고 인지범위 300
-//                .radius(sensingRadius300)
-//                .fillColor(Color.parseColor("#220000ff"))
-//                .strokeWidth(0f));
-        pool.playSound(pool.SOUND_START);
+        m200Range = mMap.addCircle(new CircleOptions().center(pos) //사고 인지범위 200
+                .radius(sensingRadius200)
+                .fillColor(Color.parseColor("#220000ff"))
+                .strokeWidth(0f));
 
         new Thread(new GetJSONRunnable()).start();
-//        //처음 실행시 사고지역 등록
-//        try {
-//            ArrayList<AccidentVO> list = reqDAO.getAccidentJson();
-//            addMarkerAlert(list);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
     }
 
     //위치 리스너 함수
@@ -176,7 +168,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onLocationChanged(Location location) {
             LatLng position = new LatLng(location.getLatitude(), location.getLongitude());//위치값을 가져온다
             mNowMarker.setPosition(position); //자동차 지금위치를 set
-//            m300Range.setCenter(position); //300 반경 범위 지금위치로 set
+            m200Range.setCenter(position); //200 반경 범위 지금위치로 set
             m100Range.setCenter(position);//100 반경 범위 지금위치로 set
             mMap.moveCamera(CameraUpdateFactory.newLatLng(position)); // 카메라도 지금위치로 move
             Log.i("moveto", location.getLatitude() + " : " + location.getLongitude());
@@ -203,7 +195,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void run() {
             try {
                 Log.i("SocketRunnable", "thread start>>");
-                Socket socket = new Socket("192.168.0.127", 5000);
+                Socket socket = new Socket("52.231.26.49", 5000);
                 BufferedReader bfReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 while (true) {
                     if ((mRead = bfReader.readLine()) != null) { //소켓서버에서 메시지를 받으면
@@ -220,84 +212,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }//end run()
     }//end class SocketRunable
 
-
-    class MethodeHolder {
-
-        public void getJSON() {
-            ArrayList<AccidentVO> listVO = new ArrayList<>();
-            Log.i("MapsActivity>>", "getJSONStart");
-            try {
-                listVO = reqDAO.getAccidentJson(); //네트워크에서 json을 가져와 리스트에  담음
-                Message msg = new Message();
-                msg.obj = listVO;
-                mHandler.sendMessage(msg);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }//end getJSON
-
-        public void addMarker(ArrayList<AccidentVO> listVO) {
-            Log.i("MapsActivity>>", "addMarkerStart");
-            Iterator<AccidentVO> iterator = listVO.iterator();
-            for (int i = 0; i < makerList.size(); i++) {
-                if (makerList.get(i) != null) {
-                    makerList.get(i).remove();  //마커지우기
-                }
-            }
-            makerList.clear(); //사고리스트 초기화
-
-            //새로등록
-            while (iterator.hasNext()) {
-                Log.i("MapsActivity>>", "MarkerLoop");
-                AccidentVO tempVO = iterator.next();
-                iterator.remove();
-                if (tempVO.getStatus().equals("occured")) {
-                    LatLng position = new LatLng(tempVO.getLatitude(), tempVO.getLongitude());
-                    makerList.add(mMap.addMarker(new MarkerOptions().position(position).title("사고 지역").icon(BitmapDescriptorFactory.fromResource(R.drawable.warning2)))); //사고지역 마커등록
-                    makerList.get(tempVO.getNum()).showInfoWindow(); //사고지역이라고 메시지 띄워줌
-                }
-            }//end while
-        }//end addMarker()
-
-        public void addAlert(ArrayList<AccidentVO> listVO) {
-            Log.i("MapsActivity>>", "addAlertStart");
-            Iterator<AccidentVO> iterator = listVO.iterator();
-
-            if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_FINE_ACCESS);
-                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_COARSE_LOCATION);
-            } //권한추가
-
-            //이전 정보들 지우기
-            if (mLocMgr != null) {
-                mLocMgr.removeProximityAlert(mPending100); //접근 알람 지우기
-//                mLocMgr.removeProximityAlert(mPending300); //접근 알람 지우기
-            }
-
-            //새로등록
-            while (iterator.hasNext()) {
-                Log.i("MapsActivity>>", "alertLoop");
-                AccidentVO tempVO = iterator.next();
-                iterator.remove();
-
-                if (tempVO.getStatus().equals("occured")) {
-                    mLocMgr.addProximityAlert(tempVO.getLatitude(), tempVO.getLongitude(), (float) sensingRadius100, -1, mPending100);    //접근알람 등록
-//                mLocMgr.addProximityAlert(tempVO.getLatitude(), tempVO.getLongitude(), (float)sensingRadius300,-1,mPending300);    //접근알람 등록
-                }
-            }//end while
-        }//end addAlert();
-    }//end class
-
     private class GetJSONRunnable implements Runnable {
         @Override
         public void run() {
-            methodeHolder.getJSON();
+          getJSON();
         }
     }
+
+    public void getJSON() {
+        ArrayList<AccidentVO> listVO = new ArrayList<>();
+        Log.i("MapsActivity>>", "getJSONStart");
+        try {
+            listVO = reqDAO.getAccidentJson(); //네트워크에서 json을 가져와 리스트에  담음
+            if(listVO!=null){
+                Message msg = new Message();
+                msg.obj = listVO;
+                mHandler.sendMessage(msg);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }//end getJSON
 
     Handler mHandler = new Handler() {
         @Override
@@ -333,6 +268,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             iterator.remove();
 //          접근알람 등록
             mLocMgr.addProximityAlert(tempVO.getLatitude(), tempVO.getLongitude(), (float)sensingRadius100,-1,mPending100);
+            mLocMgr.addProximityAlert(tempVO.getLatitude(), tempVO.getLongitude(), (float)sensingRadius200,-1,mPending200);
             LatLng position = new LatLng(tempVO.getLatitude(), tempVO.getLongitude());
             makerList.add(mMap.addMarker(new MarkerOptions().position(position).title("사고 지역").icon(BitmapDescriptorFactory.fromResource(R.drawable.warning2))));
             makerList.get(tempVO.getNum()).showInfoWindow();

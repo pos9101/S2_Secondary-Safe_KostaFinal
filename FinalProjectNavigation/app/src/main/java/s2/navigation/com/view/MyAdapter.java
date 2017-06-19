@@ -35,16 +35,17 @@ public class MyAdapter extends BaseAdapter implements View.OnClickListener {
 
         myContext = context;
         this.voList = voList;
-        pool =new SoundPoolController(myContext);
+        pool = new SoundPoolController(myContext);
     }
 
-    public void printList(){
-        for (AccidentVO x: voList) {
-            Log.i("MyAdapter>>","addr: " + x.getAddr()+ " num: " + x.getAcciNum() + " atime: " + x.getAtime());
+    public void printList() {
+        for (AccidentVO x : voList) {
+            Log.i("MyAdapter>>", "addr: " + x.getAddr() + " num: " + x.getAcciNum() + " atime: " + x.getAtime());
         }
 
 
     }
+
     @Override
     public int getCount() {
         return voList.size();
@@ -92,19 +93,21 @@ public class MyAdapter extends BaseAdapter implements View.OnClickListener {
                 txtform.setTag(vo);*/
             }//if vo not null
         }//if v not null
+
+
         return v;
     }//end getView
 
     @Override
     public void onClick(View v) {
         pool.playSound(pool.SOUND_BBOK);
-        AccidentVO clickItem = (AccidentVO)v.getTag();
+        AccidentVO clickItem = (AccidentVO) v.getTag();
         Intent intent = new Intent(myContext.getApplicationContext(), HandingActivity.class);
         intent.putExtra("addr", clickItem.getAddr());
         intent.putExtra("atime", clickItem.getAtime());
         intent.putExtra("accinum", clickItem.getAcciNum());
-        intent.putExtra("status",clickItem.getStatus());
-        intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("status", clickItem.getStatus());
+        intent.setFlags(intent.FLAG_ACTIVITY_NO_HISTORY);
 //            myContext.startActivity(intent);
         PendingIntent pendintent = PendingIntent.getActivity(myContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         try {

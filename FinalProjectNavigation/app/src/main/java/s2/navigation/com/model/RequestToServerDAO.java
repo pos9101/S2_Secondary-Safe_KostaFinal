@@ -25,12 +25,12 @@ import java.util.List;
 
 public class RequestToServerDAO {
 
-	private String URL_DATAS = "http://192.168.0.127:8090/web/json/datas";
-    private String URL_CALL = "http://192.168.0.127:8090/web/arduino.in";
-	private String URL_POST = "http://192.168.0.127:8090/web/manage.do";
+	private String URL_DATAS = "http://52.231.26.49:8080/web/json/datas";
+    private String URL_CALL = "http://52.231.26.49:8080/web/arduino.in";
+	private String URL_POST = "http://52.231.26.49:8080/web/manage.do";
 	private final String URL_UPDATE = "http://192.168.0.118:8090/project02movieweb/update_json.do";
 	private final String URL_DELETE = "http://192.168.0.118:8090/project02movieweb/delete_json.do";
-	private final String URL_LOGIN = "http://192.168.0.118:8090/project02movieweb/login_json.do";
+	private final String URL_LOGIN = "http://52.231.26.49/web/user/loginPage";
 	
 
 	private HttpURLConnection conn = null;
@@ -38,27 +38,33 @@ public class RequestToServerDAO {
 	
 	public ArrayList<AccidentVO> getAccidentJson() throws JSONException {
 		ArrayList<AccidentVO> voList =new ArrayList<>();
-//		String str =requestQuery(URL_DATAS);
-		String str= "{\"totalAccidents\":[{\"serialnum\":\"SF17061056\",\"latitude\":37.402129,\"longitude\":127.107474,\"atime\":\"2017.06.10/16:10\",\"status\":\"occured\"},{\"serialnum\":\"SF2017061000\",\"latitude\":37.401913,\"longitude\":127.109340,\"atime\":\"2017.06.10/13:54\",\"status\":\"occured\"}]}";
-		Log.i("ReqDaoActivity>>","search");
-		Log.i("ReqDaoActivity>>",str);
-		 JSONObject jobj = new JSONObject(str);
-		Log.i("ReqDaoActivity>>",jobj.toString());
-		JSONArray jArr = jobj.getJSONArray("totalAccidents");
-		Log.i("JReqDaoActivity>>",jArr.toString());
-		for (int i = 0 ;  i < jArr.length() ; i++){
-			JSONObject tempJobj = jArr.getJSONObject(i);
-			AccidentVO acciVO = new AccidentVO();
-			acciVO.setAcciNum(tempJobj.getString("serialnum"));;
-			acciVO.setLatitude(tempJobj.getDouble("latitude"));
-			acciVO.setLongitude(tempJobj.getDouble("longitude"));
-			acciVO.setAtime(tempJobj.getString("atime"));
-			acciVO.setStatus(tempJobj.getString("status"));
-			Log.i("ReqDaoActivity>>","Lati:"+acciVO.getLatitude());
-			Log.i("ReqDaoActivity>>","Longi:"+acciVO.getLongitude());
-			voList.add(acciVO);
+		String str =requestQuery(URL_DATAS);
+//		String str= "{\"totalAccidents\":[{\"serialnum\":\"SF17061056\",\"latitude\":37.402129,\"longitude\":127.107474,\"atime\":\"2017.06.10/16:10\",\"status\":\"occured\"},{\"serialnum\":\"SF2017061000\",\"latitude\":37.401913,\"longitude\":127.109340,\"atime\":\"2017.06.10/13:54\",\"status\":\"occured\"}]}";
+//		String str= "{\"totalAccidents\":[{\"serialnum\":\"SF17061056\",\"latitude\":37.439170,\"longitude\":127.138862,\"atime\":\"2017.06.10/16:10\",\"status\":\"occured\"},{\"serialnum\":\"SF2017061000\",\"latitude\":37.440306,\"longitude\":127.141377,\"atime\":\"2017.06.10/13:54\",\"status\":\"occured\"}]}";
+//		String str= "{\"totalAccidents\":[{\"serialnum\":\"SF17061056\",\"latitude\":37.402598,\"longitude\":127.106292,\"atime\":\"2017.06.10/16:10\",\"status\":\"occured\"},{\"serialnum\":\"SF2017061000\",\"latitude\":37.402598,\"longitude\":127.106292,\"atime\":\"2017.06.10/13:54\",\"status\":\"occured\"}]}";
+		if(str.equals("no")){
+			return null;
+		}else {
+			Log.i("ReqDaoActivity>>", "search");
+			Log.i("ReqDaoActivity>>", str);
+			JSONObject jobj = new JSONObject(str);
+			Log.i("ReqDaoActivity>>", jobj.toString());
+			JSONArray jArr = jobj.getJSONArray("totalAccidents");
+			Log.i("JReqDaoActivity>>", jArr.toString());
+			for (int i = 0; i < jArr.length(); i++) {
+				JSONObject tempJobj = jArr.getJSONObject(i);
+				AccidentVO acciVO = new AccidentVO();
+				acciVO.setAcciNum(tempJobj.getString("serialnum"));
+				;
+				acciVO.setLatitude(tempJobj.getDouble("latitude"));
+				acciVO.setLongitude(tempJobj.getDouble("longitude"));
+				acciVO.setAtime(tempJobj.getString("atime"));
+				acciVO.setStatus(tempJobj.getString("status"));
+				Log.i("ReqDaoActivity>>", "Lati:" + acciVO.getLatitude());
+				Log.i("ReqDaoActivity>>", "Longi:" + acciVO.getLongitude());
+				voList.add(acciVO);
+			}
 		}
-
 		return voList;
 	}
 
@@ -108,9 +114,25 @@ public class RequestToServerDAO {
 	}
 	
 	public boolean loginCheck(SignVO vo){
-		Log.i("LocinCheck>>",URL_LOGIN+"?id="+vo.getId()+"&pw="+ vo.getPw());
-		String jstr =requestQuery(URL_LOGIN+"?id="+vo.getId()+"&pw="+ vo.getPw());
-		Log.i("LocinCheck>>","result"+ jstr);
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpPost httppost = new HttpPost(URL_POST);
+
+		try {
+			// Dependancy 추가: org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("serialnum", vo.getId()));
+			nameValuePairs.add(new BasicNameValuePair("status", vo.getPw()));
+			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+			//HTTP Post 요청 실행
+			HttpResponse response = httpclient.execute(httppost);
+
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+		}
+		String jstr="만약에 Json형식으로 리턴값이 있으면 여기에 집어 넣을 것";
 		return Boolean.parseBoolean(jstr);
 	}
 	
@@ -168,7 +190,11 @@ public class RequestToServerDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return sb.toString();
+		if(sb==null){
+			return "no";
+		}else{
+			return sb.toString();
+		}
 	}//end line Read()
 	
 	
