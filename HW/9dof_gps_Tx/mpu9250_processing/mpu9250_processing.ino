@@ -7,11 +7,12 @@
 #include "MPU9250_9Axis_MotionApps41.h"
 //#include "MPU9250.h" // not necessary if using MotionApps include file
 #define LED_PIN 9
-
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
 #include "Wire.h"
 #endif
 
+char g1[11];
+char g2[11];
 // class default I2C address is 0x68
 // specific I2C addresses may be passed as a parameter here
 // AD0 low = 0x68 (default for SparkFun breakout and InvenSense evaluation board)
@@ -108,7 +109,7 @@ void setup() {
 
   // verify connection
   Serial.println(F("Testing device connections..."));
-  Serial.println(mpu.testConnection() ? F("MPU9250 connection successful") : F("MPU9250 connection failed"));
+  Serial.println(mpu.testConnection() ? F("MPU connection successful") : F("MPU9250 connection failed"));
 
 
   // load and configure the DMP
@@ -277,14 +278,43 @@ void loop() {
     if (flag == 1) {
       tone(8, NOTE_G4, 200);
       digitalWrite(LED_PIN, HIGH);
+//      printFloat(123.456789*1000,true, 11, 6);
+//      printFloat(123.456789*1000, true, 11, 6);
+//      Serial.println("------normal----");
       printFloat(gps.location.lat(), gps.location.isValid(), 11, 6);
       printFloat(gps.location.lng(), gps.location.isValid(), 12, 6);
+//        Serial.print(123456.789);
+//      Serial.println("----edit-----");     
+//        Serial.print(gps.location.lat()*1000,3);
+//        Serial.print(' ');
+//        Serial.print(gps.location.lng()*1000,3);
+
+//        Serial.println("----edit2-----");   
+        double xx = gps.location.lat()*1000;
+        double yy = gps.location.lng()*1000;  
+        Serial.print(xx);
+        Serial.print(' ');
+        Serial.print(yy);
+//        Serial.println("----edit3-----");   
+//        Serial.print(gps.location.lat()*1000,3);
+//        Serial.print(' ');
+//        Serial.print(gps.location.lng()*1000,3);
+//      Serial.println(gps.location.lat(),6);
+//      Serial.println(gps.location.lng(),6);
+//      long gpsX4E = gps.location.lat()*1000000;
+//      long gpsY4E = gps.location.lng()*1000000;
+
+//      Serial.print(gpsX4E);
+//      Serial.print(' ');
+//      Serial.print(gpsY4E);
+
+
       Serial.println("");
-      delay(500);
+      delay(400);
     }
     else {
-
-
+      Serial.print("200000");
+      Serial.print("\n"); 
     }
     digitalWrite(LED_PIN, LOW);
     noTone(8);
@@ -313,15 +343,14 @@ static void printFloat(float val, bool valid, int len, int prec)
   if (!valid)
   {
     while (len-- > 1)
-      Serial.print('0');
+      Serial.print("0");
     Serial.print(' ');
   }
   else
   {
-    Serial.print(val, prec);
     int vi = abs((int)val);
     int flen = prec + (val < 0.0 ? 2 : 1); // . and - 
-    flen += vi >= 1000 ? 4 : vi >= 100 ? 3 : vi >= 10 ? 2 : 1;
+    flen += vi  >= 100000 ? 6 : vi  >= 10000 ? 5 : vi  >= 1000 ? 4 : vi >= 100 ? 3 : vi >= 10 ? 2 : 1;
     for (int i = flen; i<len; ++i)
       Serial.print(' ');
   }
