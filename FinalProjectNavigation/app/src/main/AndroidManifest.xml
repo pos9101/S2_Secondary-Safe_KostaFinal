@@ -63,7 +63,7 @@
         <activity android:name=".view.WebViewActivity"
             android:screenOrientation="landscape"></activity>
         <receiver android:name=".BroadCastProximity" />
-
+        <receiver android:name=".BroadCastProximity2" />
     </application>
 
 </manifest>

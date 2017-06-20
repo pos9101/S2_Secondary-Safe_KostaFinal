@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import s2.navigation.com.BroadCastProximity;
 import s2.navigation.com.R;
 import s2.navigation.com.SoundPoolController;
 
@@ -43,7 +44,7 @@ public class ButtonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pool.playSound(pool.SOUND_BBOK);
-                startActivity(new Intent(ButtonActivity.this,MapsActivity.class));
+                startActivity(new Intent(ButtonActivity.this,MapsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 overridePendingTransition(R.anim.anim_slide_in_top,R.anim.anim_nomove);
 
             }
@@ -53,7 +54,7 @@ public class ButtonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pool.playSound(pool.SOUND_BBOK);
-                startActivity(new Intent(ButtonActivity.this,CallActivity.class));
+                startActivity(new Intent(ButtonActivity.this,CallActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 overridePendingTransition(R.anim.anim_open_scale,R.anim.anim_close_scale);
             }
         });
@@ -62,7 +63,7 @@ public class ButtonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pool.playSound(pool.SOUND_BBOK);
-                startActivity(new Intent(ButtonActivity.this,ListActivity.class));
+                startActivity(new Intent(ButtonActivity.this,ListActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                 overridePendingTransition(R.anim.anim_slide_in_bottom,R.anim.anim_nomove);
 
             }
@@ -72,7 +73,8 @@ public class ButtonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pool.playSound(pool.SOUND_BBOK);
-                startActivity(new Intent(ButtonActivity.this,WebViewActivity.class));
+//                sendBroadcast(new Intent(ButtonActivity.this, BroadCastProximity.class));
+                startActivity(new Intent(ButtonActivity.this,WebViewActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 overridePendingTransition(R.anim.anim_slide_in_bottom,R.anim.anim_nomove);
             }
         });

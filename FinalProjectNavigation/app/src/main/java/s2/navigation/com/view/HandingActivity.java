@@ -71,7 +71,7 @@ public class HandingActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId){
                     case R.id.rb_no :
-                        status = "occured";
+                        status = "processing";
                         break;
 
                     case R.id.rb_yes :
@@ -93,11 +93,10 @@ public class HandingActivity extends AppCompatActivity {
                         reqDAO.postData(accinum,status);
                     }
                 }).start();
-//                Toast.makeText(new HandingActivity().getApplicationContext(),"전송되었습니다.",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HandingActivity.this,ListActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                 finish();
             }
         });
-
     }
 
     private void getFromList(){
@@ -115,7 +114,7 @@ public class HandingActivity extends AppCompatActivity {
                 textAddr.setText(addr);
                 textAtime.setText(atime);
                 textAcci.setText(accinum);
-                if (status.equals("occured")){
+                if (status.equals("processing")){
                     rbNo.setChecked(true);
                 }else{
                     rbYes.setChecked(true);
@@ -126,7 +125,7 @@ public class HandingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        startActivity(new Intent(HandingActivity.this,ListActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
         this.overridePendingTransition(R.anim.anim_nomove,R.anim.anim_slide_out_right);
     }
 

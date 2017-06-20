@@ -32,11 +32,11 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestToServerDAO reqdao;
         SignVO vo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         etId =(EditText)findViewById(R.id.et_id);
         etPassword = (EditText)findViewById(R.id.et_password);
